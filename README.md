@@ -53,6 +53,6 @@ npm run start
 ## Useful links
 
 - [Presentation slides]()
-- [Backend repository]()
-- [Backend deploy]()
+- [Backend repository](https://github.com/WajahatFit/Apple-Clone-Back-End)
+- [Backend deploy](https://applecloned.herokuapp.com/)
 - [Deployed app]()
