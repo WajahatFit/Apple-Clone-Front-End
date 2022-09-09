@@ -1,8 +1,8 @@
-# Project's name
+# Apple Store Clone
 
 ## Description
 
-This application is called XXX. It is used for ...
+This application is called Apple Store Clone. It is used for buy all the Apple Products from a simple Apple pencil to complex OS system like MacBook Pro M2.
 
 > Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
 ![](picture.png)
