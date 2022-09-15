@@ -6,16 +6,8 @@ export default function EditProject() {
   //const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [button, setButton] = useState(false);
-
-  const handleButton = () => {
-    setButton((prevState) => {
-      prevState = !prevState;
-    });
-  };
 
   useEffect(() => {
-    console.log("render com", id);
     const getData = async () => {
       try {
         const product = await axios.get(
@@ -38,7 +30,6 @@ export default function EditProject() {
         [name]: type === "checkbox" ? checked : value,
       };
     });
-    console.log(product);
   };
 
   const handleSubmit = async (e) => {
@@ -53,9 +44,6 @@ export default function EditProject() {
 
   return (
     <div>
-      <div onClick={handleButton}>
-        {button ? <span>Edit</span> : <span>Delete</span>}
-      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

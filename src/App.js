@@ -37,7 +37,12 @@ function App() {
             </IsAdmin>
           }
         />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={
+            <Login />
+          }
+          />
         <Route
           path="/private"
           element={

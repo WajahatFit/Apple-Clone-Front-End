@@ -42,7 +42,7 @@ export default function CreateProduct() {
         productToSend,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-      console.log(newProduct)
+      console.log(newProduct);
       navigate(`/products/${newProduct.data.data._id}`);
     } catch (error) {
       console.error(error);
