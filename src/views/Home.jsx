@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-// import { AuthContext } from "../context/AuthContext";
-// import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 export default function Home() {
-  const [products, setProducts] = useState(null);
-  // const { user } = useContext(AuthContext);
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:8000/api/v1/products"
-        );
-        setProducts(response.data.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getProduct();
-  }, []);
+  const { products } = useContext(AuthContext);
   return (
     <div>
       {!products && <p>No products found in the DB</p>}

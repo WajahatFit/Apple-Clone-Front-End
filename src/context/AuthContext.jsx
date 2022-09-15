@@ -1,5 +1,5 @@
-import React, { useState, createContext, useEffect } from "react";
-import axios from "axios";
+import React, { useState, createContext, useEffect } from 'react';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -9,31 +9,28 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-
+  
   // Functions to store and delete the token received by the backend in the browser
   const storeToken = (token) => {
-    localStorage.setItem("authToken", token);
-  };
+    localStorage.setItem('authToken', token);
+  }
 
   const removeToken = () => {
-    localStorage.removeItem("authToken");
-  };
+    localStorage.removeItem('authToken');
+  }
 
   // Function to check if the user is already authenticated or not
   const authenticateUser = async () => {
     setLoading(true);
-    const storedToken = localStorage.getItem("authToken");
+    const storedToken = localStorage.getItem('authToken');
     if (storedToken) {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/auth/me`,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        );
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/me`, { headers: { Authorization: `Bearer ${storedToken}` } });
         setIsLoggedIn(true);
-        if (response.data.role === "admin") {
+        if(response.data.role === 'admin') {
           setIsAdmin(true);
         }
-
+       
         setLoading(false);
         setUser(response.data);
       } catch (error) {
@@ -51,26 +48,18 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken();
     authenticateUser();
-  };
+  }
 
   useEffect(() => {
     authenticateUser();
   }, []);
+  console.log('isAdmin:',isAdmin);
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        isAdmin,
-        isLoggedIn,
-        isLoading,
-        storeToken,
-        authenticateUser,
-        logOutUser,
-      }}
-    >
+    <AuthContext.Provider value={{ user, isAdmin, isLoggedIn, isLoading, storeToken, authenticateUser, logOutUser }}>
       {props.children}
     </AuthContext.Provider>
-  );
+  )
 }
 
 export { AuthProviderWrapper, AuthContext };
+

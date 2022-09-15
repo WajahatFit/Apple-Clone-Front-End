@@ -7,7 +7,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   return (
     <div>
-      {user && <p>Hello {user.username}</p>}
+      {user && <p>Hello {user.username}</p>} {console.log(user)}
       <ul>
         <li>
           <NavLink
