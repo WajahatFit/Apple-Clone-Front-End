@@ -1,4 +1,4 @@
-# Project's name
+# Apple Store Clone
 
 ## Description
 
