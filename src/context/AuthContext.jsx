@@ -9,16 +9,13 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  
   // Functions to store and delete the token received by the backend in the browser
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
   }
-
   const removeToken = () => {
     localStorage.removeItem('authToken');
   }
-
   // Function to check if the user is already authenticated or not
   const authenticateUser = async () => {
     setLoading(true);
@@ -30,7 +27,6 @@ function AuthProviderWrapper(props) {
         if(response.data.role === 'admin') {
           setIsAdmin(true);
         }
-       
         setLoading(false);
         setUser(response.data);
       } catch (error) {
@@ -44,16 +40,13 @@ function AuthProviderWrapper(props) {
       setUser(null);
     }
   };
-
   const logOutUser = () => {
     removeToken();
     authenticateUser();
   }
-
   useEffect(() => {
     authenticateUser();
   }, []);
-  console.log('isAdmin:',isAdmin);
   return (
     <AuthContext.Provider value={{ user, isAdmin, isLoggedIn, isLoading, storeToken, authenticateUser, logOutUser }}>
       {props.children}

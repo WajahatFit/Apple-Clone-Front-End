@@ -37,6 +37,7 @@ export default function CreateProduct() {
       productImages: productImages,
     };
     try {
+      console.log("I am about to create a prod", productToSend)
       const newProduct = await axios.post(
         "http://localhost:8000/api/v1/products",
         productToSend,
@@ -63,7 +64,7 @@ export default function CreateProduct() {
       console.error(error);
     }
   };
-  console.log(product, productImages);
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>

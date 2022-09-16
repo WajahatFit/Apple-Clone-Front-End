@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function EditProject() {
+export default function EditProduct() {
   //const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -44,7 +44,7 @@ export default function EditProject() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      {product && <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="title"
@@ -74,7 +74,7 @@ export default function EditProject() {
             id="Blue"
             name="color"
             value="Blue"
-            onchange={handleChange}
+            onChange={handleChange}
             checked={product.color === "Blue"}
           />
           <label htmlFor="Blue">Blue</label>
@@ -83,7 +83,7 @@ export default function EditProject() {
             id="Black"
             name="color"
             value="Black"
-            onchange={handleChange}
+            onChange={handleChange}
             checked={product.color === "Black"}
           />
           <label htmlFor="Black">Black</label>
@@ -92,7 +92,7 @@ export default function EditProject() {
             id="Red"
             name="color"
             value="Red"
-            onchange={handleChange}
+            onChange={handleChange}
             checked={product.color === "Red"}
           />
           <label htmlFor="Red">Red</label>
@@ -101,7 +101,7 @@ export default function EditProject() {
             id="Orange"
             name="color"
             value="Orange"
-            onchange={handleChange}
+            onChange={handleChange}
             checked={product.color === "Orange"}
           />
           <label htmlFor="Black">Orange</label>
@@ -110,7 +110,7 @@ export default function EditProject() {
             id="Purple"
             name="color"
             value="Purple"
-            onchange={handleChange}
+            onChange={handleChange}
             checked={product.color === "Purple"}
           />
           <label htmlFor="Purple">Purple</label>
@@ -141,6 +141,7 @@ export default function EditProject() {
 
         <button type="submit">Save Changes</button>
       </form>
+      }
     </div>
   );
 }
