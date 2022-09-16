@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
-import EditProject from "./views/EditProduct";
 import ErrorPage from "./views/ErrorPage";
 import Signup from "./views/auth/Signup";
 import Login from "./views/auth/Login";
@@ -11,7 +10,8 @@ import PrivateView from "./views/PrivateView";
 import IsPrivate from "./components/IsPrivate";
 import CreateProduct from "./views/CreateProduct";
 import Profile from "./views/Profile";
-import IsAdmin from "./components/isAdmin";
+import IsAdmin from "./components/IsAdmin";
+import EditProduct from "./views/EditProduct";
 
 function App() {
   return (
@@ -55,7 +55,7 @@ function App() {
           path="/edit/:id"
           element={
             <IsAdmin>
-              <EditProject />
+              <EditProduct />
             </IsAdmin>
           }
         />

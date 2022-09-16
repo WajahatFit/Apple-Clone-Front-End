@@ -3,11 +3,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
     <div>
-      {user && <p>Hello {user.username}</p>} {console.log(user)}
       <ul>
         <li>
           <NavLink
@@ -47,16 +46,7 @@ export default function Navbar() {
             </NavLink>
           </li>
         )}
-        {isLoggedIn && (
-          <li>
-            <NavLink
-              className={(element) => (element.isActive ? "selected" : "")}
-              to="/edit"
-            >
-              Edit
-            </NavLink>
-          </li>
-        )}
+        
         <li>
           <NavLink
             className={(element) => (element.isActive ? "selected" : "")}
