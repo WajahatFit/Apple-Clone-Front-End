@@ -26,20 +26,6 @@ export default function Navbar() {
                 Home
               </NavLink>
             </li>
-            {isLoggedIn && (
-              <li>
-                <NavLink
-                  className={(element) =>
-                    element.isActive
-                      ? "selected text-2xl"
-                      : "hover:text-darkGrayishBlue text-xl"
-                  }
-                  to="/Products"
-                >
-                  Products
-                </NavLink>
-              </li>
-            )}
             {user && (
               <li>
                 <NavLink
