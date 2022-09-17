@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { AuthContext } from "../context/AuthContext";
-import { useContext } from "react";
 import ProductCard from "../components/ProductCard";
 
 
 export default function Home() {
   const [products, setProducts] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState(null);
-  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const getProduct = async () => {

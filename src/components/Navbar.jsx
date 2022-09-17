@@ -66,6 +66,18 @@ export default function Navbar() {
                 Cart
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={(element) =>
+                  element.isActive
+                    ? "selected text-2xl"
+                    : "hover:text-darkGrayishBlue text-xl"
+                }
+                to="/products"
+              >
+                Products
+              </NavLink>
+            </li>
             <li
               className="hover:text-darkGrayishBlue text-xl"
               onClick={() => navigate(-1)}
