@@ -34,12 +34,12 @@ export default function CreateProduct() {
       color: product.color,
       newStock: product.newStock,
       category: product.category,
-      productImages: productImages,
+      images: productImages,
     };
     try {
       console.log("I am about to create a prod", productToSend)
       const newProduct = await axios.post(
-        "http://localhost:8000/api/v1/products",
+        "http://localhost:8000/api/v1/products/create",
         productToSend,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
@@ -159,7 +159,7 @@ export default function CreateProduct() {
         >
           <option>-- Choose --</option>
           <option value="Mac">Mac</option>
-          <option value="Iphone">Iphone</option>
+          <option value="iPhone">Iphone</option>
           <option value="Ipad">Ipad</option>
           <option value="Apple Watch">Apple Watch</option>
           <option value="Apple TV">Apple TV</option>

@@ -47,6 +47,7 @@ export default function Signup() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <div>
         <label>Username</label>
         <input
           required
@@ -80,7 +81,8 @@ export default function Signup() {
           onChange={(e) => setPasswordControl(e.target.value)}
         />
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <button type="submit">Register</button>
+          <button type="submit">Register</button>
+          </div>
       </form>
     </div>
   );

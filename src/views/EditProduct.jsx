@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,  useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from 'react-hot-toast';
 
 export default function EditProduct() {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const storedToken = localStorage.getItem('authToken');
 
   useEffect(() => {
     const getData = async () => {
@@ -41,6 +43,16 @@ export default function EditProduct() {
       console.error(error);
     }
   };
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:8000/api/v1/products/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } });
+      toast.success('Product deleted successfully')
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div>
@@ -139,7 +151,9 @@ export default function EditProduct() {
           <option value="Air Pods">Air Pods</option>
         </select>
 
-        <button type="submit">Save Changes</button>
+        <button className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight" type="submit">Save Changes</button>
+        <button className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight" onClick={handleDelete}>Delete product</button>
+
       </form>
       }
     </div>

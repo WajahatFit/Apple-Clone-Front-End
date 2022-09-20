@@ -13,6 +13,8 @@ import Profile from "./views/Profile";
 import IsAdmin from "./components/IsAdmin";
 import EditProduct from "./views/EditProduct";
 import Products from './views/Products'
+import ProductDetails from "./views/products/ProductDetails";
+import Cart from "./views/Cart";
 
 function App() {
   return (
@@ -59,6 +61,18 @@ function App() {
             <IsAdmin>
               <EditProduct />
             </IsAdmin>
+          }
+        />
+        <Route
+          path="/products/:id"
+          element={
+              <ProductDetails />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+              <Cart />
           }
         />
         <Route path="*" element={<ErrorPage />} />
