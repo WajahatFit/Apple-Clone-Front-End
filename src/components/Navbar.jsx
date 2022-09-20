@@ -11,7 +11,7 @@ export default function Navbar() {
       <nav className="relative container mx-auto">
         <div className="flex items-center justify-between">
           <div className="pt-2">
-            <img src={logo} alt="orange logo" className="w-40" />
+            <img src={logo} alt="orange logo" className="w-20 md:w-32" />
           </div>
           <ul className="hidden md:flex space-x-12">
             <li>
@@ -26,7 +26,7 @@ export default function Navbar() {
                 Home
               </NavLink>
             </li>
-            {user && (
+            {user && user.role === "admin" && (
               <li>
                 <NavLink
                   className={(element) =>
@@ -40,7 +40,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
             )}
-            <li>
+            {user && <li>
               <NavLink
                 className={(element) =>
                   element.isActive
@@ -51,7 +51,7 @@ export default function Navbar() {
               >
                 Cart
               </NavLink>
-            </li>
+            </li>}
             <li>
               <NavLink
                 className={(element) =>
@@ -92,13 +92,13 @@ export default function Navbar() {
         </div>
       </nav>
       <svg
-        className="ms:block fixed top-0 -z-10"
+        className="ms:block absolute top-0 -z-10"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
         <path
           fill="#5000ca"
-          fill-opacity="1"
+          fillOpacity="2"
           d="M0,256L40,250.7C80,245,160,235,240,245.3C320,256,400,288,480,277.3C560,267,640,213,720,202.7C800,192,880,224,960,245.3C1040,267,1120,277,1200,277.3C1280,277,1360,267,1400,261.3L1440,256L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
         ></path>
       </svg>
