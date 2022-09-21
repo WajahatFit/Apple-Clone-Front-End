@@ -16,6 +16,7 @@ import Products from './views/Products'
 import ProductDetails from "./views/products/ProductDetails";
 import Cart from "./views/Cart";
 
+
 function App() {
   return (
     <div className="App">
@@ -77,6 +78,7 @@ function App() {
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+     
     </div>
   );
 }

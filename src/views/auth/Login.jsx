@@ -40,7 +40,11 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="container flex flex-col-reverse ">
+      <div className="w-1/2">
+        
+      </div>
+    <div className="w-1/2">
       <form onSubmit={handleSubmit}>
         <label>Email</label>
         <input
@@ -61,7 +65,10 @@ export default function Login() {
         <img src={user.profilePic} alt={user.username}></img>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <button type="submit">Log in </button>
-      </form>
-    </div>
+        </form>
+        
+      
+      </div>
+      </div>
   );
 }

@@ -12,7 +12,7 @@ export default function Section1() {
               <img
                 src={difference}
                 alt="difference"
-                className="md:w-3/5 md:pt-5"
+                className="mx-auto my-5 w-2/4 md:w-3/5 md:pt-5"
               ></img>
             </h2>
             <p className="max-w-sm text-center text-darkGrayishBlue md:text-left">
