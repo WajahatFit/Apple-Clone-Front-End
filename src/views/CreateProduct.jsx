@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
+import '../views/createForm.css'
 
 export default function CreateProduct() {
   const navigate = useNavigate();
@@ -37,13 +39,12 @@ export default function CreateProduct() {
       images: productImages,
     };
     try {
-      console.log("I am about to create a prod", productToSend)
       const newProduct = await axios.post(
         "http://localhost:8000/api/v1/products/create",
         productToSend,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-      console.log(newProduct);
+      toast.success("Product created successfully!");
       navigate(`/products/${newProduct.data.data._id}`);
     } catch (error) {
       console.error(error);
@@ -66,9 +67,11 @@ export default function CreateProduct() {
   };
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="style">
+      <h1 className="text-white text-3xl text-bold text-center mt-4" >Create a product</h1>
+      <form className="flex flex-col justify-center items-center space-y-4 py-4 mx-4 mt-20" onSubmit={handleSubmit}>
         <input
+          className="p-2 rounded-xl text-lg w-96"
           type="text"
           name="title"
           placeholder="Title"
@@ -76,6 +79,7 @@ export default function CreateProduct() {
           onChange={handleChange}
         />
         <input
+          className="p-2 rounded-xl text-lg w-96 h-16"
           type="text"
           name="description"
           placeholder="Description"
@@ -83,15 +87,18 @@ export default function CreateProduct() {
           onChange={handleChange}
         />
         <input
+          className="p-2 rounded-xl text-lg w-96"
           type="number"
           name="price"
           placeholder="Price"
+          min='0'
           value={product.price}
           onChange={handleChange}
         />
-        <fieldset>
-          <legend>Available products Colors</legend>
+        <fieldset className="flex justify-center items-center space-x-2">
+          <legend className="text-white text-xl font-bold py-4">Select Color</legend>
           <input
+            className=""
             type="radio"
             id="Blue"
             name="color"
@@ -137,27 +144,26 @@ export default function CreateProduct() {
           />
           <label htmlFor="Purple">Purple</label>
         </fieldset>
-        <br />
-        <br />
-        <label htmlFor="newStock">New Product?</label>
+        <label htmlFor="newStock">New Product?
         <input
           type="checkbox"
           name="newStock"
           checked={product.newStock}
           onChange={handleChange}
           id="newStock"
-        />
-        <br />
-        <br />
-        <label htmlFor="category">Choose a Category for the Product</label>
-        <br />
+            />
+            </label>
+           
+       
+        <label className="text-white text-xl text-center inline" htmlFor="category">Choose a Category for the Product</label>
+     
         <select
           id="category"
           value={product.category}
           onChange={handleChange}
           name="category"
         >
-          <option>-- Choose --</option>
+          <option className="w-4">-- Choose --</option>
           <option value="Mac">Mac</option>
           <option value="iPhone">Iphone</option>
           <option value="Ipad">Ipad</option>
@@ -167,7 +173,7 @@ export default function CreateProduct() {
         </select>
         <br />
         <br />
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
+        <input className="border-dashed border-2 border-sky-500 w-fit p-8 mx-auto" type="file" onChange={(e) => handleFileUpload(e)} />
         <br />
         {imgForUser && (
           <ul>
@@ -175,8 +181,9 @@ export default function CreateProduct() {
               return <li key={i}>{elem}</li>;
             })}
           </ul>
-        )}
-        <button type="submit">Create New Product</button>
+          )}
+          
+        <button className=" text-white p-4 rounded-xl mb-4 bg-sky-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300" type="submit">Create New Product</button>
       </form>
     </div>
   );

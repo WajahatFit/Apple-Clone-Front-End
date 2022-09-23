@@ -1,0 +1,12 @@
+.style {
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  background: #8858ec;
+  -webkit-box-shadow: 12px 12px 25px #744bc9, -12px -12px 25px #9c65ff;
+  box-shadow: 12px 12px 25px #744bc9, -12px -12px 25px #9c65ff;
+  height: 600px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 6px;
+  margin-top: 200px;
+}
