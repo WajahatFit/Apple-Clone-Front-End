@@ -2,20 +2,19 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import cartImg from '../images/undraw_empty_cart_co35.svg'
 import { Link } from 'react-router-dom';
-//import PreviousMap from 'postcss/lib/previous-map';
+
 
 
 
 export default function Cart() {
     const storedToken = localStorage.getItem("authToken");
     const [cart, setCart] = useState(null);
-    const [quantity, setQuantity] = useState(1)
 
     useEffect(() => {
         const getCart = async () => {
           try {
             const response = await axios.get(
-              "http://localhost:8000/api/v1/cart" // `${process.env.REACT_APP_API_URL}/cart`
+              "http://localhost:8000/api/v1/cart"
               ,{ headers: { Authorization: `Bearer ${storedToken}` } });
               setCart(response.data.data[0].products);
           } catch (error) {
@@ -26,13 +25,6 @@ export default function Cart() {
         getCart();
         // eslint-disable-next-line
     }, []);
-    const handleAdd = () => {
-        setQuantity(prevState => prevState + 1)
-    };
-    const handleDec = () => { 
-        setQuantity(prevState => prevState-1
-        )
-    }
     const handleDelete = async (productId) => {    
         try {
             const response = await axios.put(
@@ -54,6 +46,7 @@ export default function Cart() {
                 <Link to='/products'><button>Discover Products</button></Link> 
             </div>}
             {cart && cart.map(item => { 
+                console.log(item)
                 return (
                     <div key={item._id} className='flex flex-col justify-center items-center'>
                     <div  className='container flex flex-row items-center justify-center bg-gradient-to-r from-sky-500 to-indigo-500 m-6 rounded-lg'>
