@@ -16,7 +16,10 @@ import Products from "./views/Products";
 import ProductDetails from "./views/products/ProductDetails";
 import Cart from "./views/Cart";
 import About from "./views/About";
-
+import Search from "./views/Search";
+import Iphone from './views/products/Iphone'
+import Watch from './views/products/Watch'
+import AirPods from './views/products/AirPods'
 function App() {
   return (
     <div className="App">
@@ -26,6 +29,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search />} />
         <Route
           path="/profile"
           element={
@@ -60,6 +64,9 @@ function App() {
             </IsAdmin>
           }
         />
+        <Route path='/airpods' element={<AirPods />} />
+        <Route path='/watch' element={<Watch />} />
+        <Route path='/iPhone' element={<Iphone />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<ErrorPage />} />

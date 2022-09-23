@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import '../views/createForm.css'
+import create from '../images/undraw_up_to_date_re_nqid.svg'
 
 export default function CreateProduct() {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ export default function CreateProduct() {
         ...prev,
         [name]: type === "checkbox" ? checked : value,
       };
+      console.log(value)
     });
   };
   const handleSubmit = async (e) => {
@@ -68,10 +70,11 @@ export default function CreateProduct() {
   
   return (
     <div className="style">
-      <h1 className="text-white text-3xl text-bold text-center mt-4" >Create a product</h1>
-      <form className="flex flex-col justify-center items-center space-y-4 py-4 mx-4 mt-20" onSubmit={handleSubmit}>
+      <h1 className="text-black text-3xl text-bold text-center mt-4 mb-6 font-extrabold" >Create a product</h1>
+      <img src={ create} alt='create' className="w-40 mx-auto" />
+      <form className="flex flex-col justify-center items-center mx-4 mt-20" onSubmit={handleSubmit}>
         <input
-          className="p-2 rounded-xl text-lg w-96"
+          className="bg-s"
           type="text"
           name="title"
           placeholder="Title"
@@ -79,7 +82,7 @@ export default function CreateProduct() {
           onChange={handleChange}
         />
         <input
-          className="p-2 rounded-xl text-lg w-96 h-16"
+          className="bg-s"
           type="text"
           name="description"
           placeholder="Description"
@@ -87,7 +90,7 @@ export default function CreateProduct() {
           onChange={handleChange}
         />
         <input
-          className="p-2 rounded-xl text-lg w-96"
+          className="bg-s"
           type="number"
           name="price"
           placeholder="Price"
@@ -95,10 +98,12 @@ export default function CreateProduct() {
           value={product.price}
           onChange={handleChange}
         />
-        <fieldset className="flex justify-center items-center space-x-2">
-          <legend className="text-white text-xl font-bold py-4">Select Color</legend>
+        <div className="flex flex-row justify-center items-center">
+        <fieldset className="space-x-2">
+          <legend className="relative left-4 text-black text-xl font-semibold py-4 text-center">Select a color</legend>
           <input
-            className=""
+            
+            className="radio"
             type="radio"
             id="Blue"
             name="color"
@@ -106,7 +111,7 @@ export default function CreateProduct() {
             onChange={handleChange}
             checked={product.color === "Blue"}
           />
-          <label htmlFor="Blue">Blue</label>
+          <label htmlFor="Blue"></label>
           <input
             type="radio"
             id="Black"
@@ -115,7 +120,7 @@ export default function CreateProduct() {
             onChange={handleChange}
             checked={product.color === "Black"}
           />
-          <label htmlFor="Black">Black</label>
+          <label htmlFor="Black"></label>
           <input
             type="radio"
             id="Red"
@@ -124,7 +129,7 @@ export default function CreateProduct() {
             onChange={handleChange}
             checked={product.color === "Red"}
           />
-          <label htmlFor="Red">Red</label>
+          <label htmlFor="Red"></label>
           <input
             type="radio"
             id="Orange"
@@ -133,7 +138,7 @@ export default function CreateProduct() {
             onChange={handleChange}
             checked={product.color === "Orange"}
           />
-          <label htmlFor="Orange">Orange</label>
+          <label htmlFor="Orange"></label>
           <input
             type="radio"
             id="Purple"
@@ -142,9 +147,12 @@ export default function CreateProduct() {
             onChange={handleChange}
             checked={product.color === "Purple"}
           />
-          <label htmlFor="Purple">Purple</label>
-        </fieldset>
-        <label htmlFor="newStock">New Product?
+
+          <label htmlFor="Purple"></label>
+          </fieldset>
+          </div>
+        <div className="font-normal space-x-4 mt-8">
+        <label className='text-lg' htmlFor="newStock">New Product?</label>
         <input
           type="checkbox"
           name="newStock"
@@ -152,10 +160,12 @@ export default function CreateProduct() {
           onChange={handleChange}
           id="newStock"
             />
-            </label>
+        </div>
+        
+            
            
        
-        <label className="text-white text-xl text-center inline" htmlFor="category">Choose a Category for the Product</label>
+        <label className="flex flex-row m-4" htmlFor="category">Choose a Category for the Product </label>
      
         <select
           id="category"
@@ -163,14 +173,15 @@ export default function CreateProduct() {
           onChange={handleChange}
           name="category"
         >
-          <option className="w-4">-- Choose --</option>
+          <option className=".list">-- Choose --</option>
           <option value="Mac">Mac</option>
           <option value="iPhone">Iphone</option>
           <option value="Ipad">Ipad</option>
           <option value="Apple Watch">Apple Watch</option>
           <option value="Apple TV">Apple TV</option>
           <option value="Air Pods">Air Pods</option>
-        </select>
+          </select>
+          
         <br />
         <br />
         <input className="border-dashed border-2 border-sky-500 w-fit p-8 mx-auto" type="file" onChange={(e) => handleFileUpload(e)} />
@@ -183,7 +194,7 @@ export default function CreateProduct() {
           </ul>
           )}
           
-        <button className=" text-white p-4 rounded-xl mb-4 bg-sky-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300" type="submit">Create New Product</button>
+        <button className=" text-white p-4 rounded-xl mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" type="submit">Create New Product</button>
       </form>
     </div>
   );
