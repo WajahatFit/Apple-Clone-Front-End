@@ -1,19 +1,20 @@
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import logo from "../images/project logo.png";     
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   return (
     <div className="bg-black bg-opacity-80 w-screen">
-      <nav className="container mx-auto">
+      <nav className=" container mx-auto">
         <div className="flex items-center justify-between">
           <div>
-            <img src={logo} alt="orange logo" className="w-20" />
+          <NavLink to='/'><img src={logo} alt="orange logo" className="w-20" /></NavLink>
           </div>
-          <ul className="hidden md:flex space-x-12">
+          <ul className="hidden md:flex space-x-12 mt-6">
             <li>
               <NavLink
                 className={(element) =>
@@ -31,7 +32,7 @@ export default function Navbar() {
                 <NavLink
                   className={(element) =>
                     element.isActive
-                      ? "text-white"
+                      ? "text-white text-xl"
                       : "text-slate-300 text-xl hover:text-darkGrayishBlue"
                   }
                   to="/create"
@@ -64,11 +65,20 @@ export default function Navbar() {
                 Products
               </NavLink>
             </li>
-            <li
-              className="text-slate-300 text-xl hover:text-darkGrayishBlue"
-              onClick={() => navigate(-1)}
-            >
-              Go back
+            <li>
+              <NavLink
+                className={(element) =>
+                  element.isActive
+                    ? "text-white text-xl"
+                    : "text-slate-300 text-xl hover:text-darkGrayishBlue"
+                }
+                to="/about"
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <SearchBar />
             </li>
           </ul>
           {isLoggedIn && (

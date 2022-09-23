@@ -23,13 +23,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col flex-nowrap mt-40">
+    <div className="flex flex-col w-full md:flex-row md:flex-wrap md:justify-center bg-black">
       {/* <img className="user--img" src={user.profilePic} alt={user.email}></img> */}
       {!products && <p>No products found in the DB</p>}
       {products &&
         filteredProducts.map((product) => {
           return (
-            <div key={ product.title }>
+            <div className="h-screen" key={ product.title }>
               <ProductCard product={product} />
             </div>
           );

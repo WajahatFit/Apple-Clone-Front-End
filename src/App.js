@@ -12,19 +12,20 @@ import CreateProduct from "./views/CreateProduct";
 import Profile from "./views/Profile";
 import IsAdmin from "./components/IsAdmin";
 import EditProduct from "./views/EditProduct";
-import Products from './views/Products'
+import Products from "./views/Products";
 import ProductDetails from "./views/products/ProductDetails";
 import Cart from "./views/Cart";
-
+import About from "./views/About";
 
 function App() {
   return (
     <div className="App">
-      <Toaster />
+      <Toaster position="top-right" reverseOrder={true} />
       <Navbar />
       <Routes>
         <Route path="/products" element={<Products />} />
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/profile"
           element={
@@ -42,12 +43,7 @@ function App() {
             </IsAdmin>
           }
         />
-        <Route
-          path="/login"
-          element={
-            <Login />
-          }
-          />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/private"
           element={
@@ -64,21 +60,10 @@ function App() {
             </IsAdmin>
           }
         />
-        <Route
-          path="/products/:id"
-          element={
-              <ProductDetails />
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-              <Cart />
-          }
-        />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-     
     </div>
   );
 }

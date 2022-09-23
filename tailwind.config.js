@@ -10,6 +10,10 @@ module.exports = {
       lg: '976px',
       xl: '1440px'
     },
+    fontFamily: {
+      
+    },
+    
     extend: {
       colors: {
         brightRed: 'hsl(12, 88%, 59%)',
