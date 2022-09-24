@@ -12,6 +12,7 @@ import CreateProduct from "./views/CreateProduct";
 import Profile from "./views/Profile";
 import IsAdmin from "./components/IsAdmin";
 import EditProduct from "./views/EditProduct";
+import Products from './views/Products'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Toaster />
       <Navbar />
       <Routes>
+        <Route path="/products" element={<Products />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/profile"
