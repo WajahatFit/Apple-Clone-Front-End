@@ -12,7 +12,7 @@ export default function LoggedIn() {
     const getData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/auth/me"
+          `${process.env.REACT_APP_API_URL}/auth/me`
         );
         setUserData(response.data.data);
         console.log(response.data.data);

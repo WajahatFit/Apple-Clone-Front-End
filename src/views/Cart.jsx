@@ -14,7 +14,7 @@ export default function Cart() {
         const getCart = async () => {
           try {
             const response = await axios.get(
-              "http://localhost:8000/api/v1/cart"
+              `${process.env.REACT_APP_API_URL}/cart`
               ,{ headers: { Authorization: `Bearer ${storedToken}` } });
               setCart(response.data.data[0].products);
           } catch (error) {
@@ -28,7 +28,7 @@ export default function Cart() {
     const handleDelete = async (productId) => {    
         try {
             const response = await axios.put(
-              "http://localhost:8000/api/v1/cart/delete/" + productId, {}
+              `${process.env.REACT_APP_API_URL}/cart/delete/` + productId, {}
               ,{ headers: { Authorization: `Bearer ${storedToken}` } });
             setCart(response.data.data.products);
             console.log(cart)
