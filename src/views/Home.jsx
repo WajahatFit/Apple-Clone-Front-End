@@ -42,8 +42,8 @@ function Home() {
             Apple Watch Series 8
                   </h1>
                   <div className="flex flex-row justify-center mx-auto space-x-8">
-                      <Link to='/Watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Buy {">"}</h1></Link>
-                      <Link to='/Watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Learn More {">"}</h1></Link>
+                      <Link to='/watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Buy {">"}</h1></Link>
+                      <Link to='/watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Learn More {">"}</h1></Link>
           </div>
                   <img className="w-full md:w-1/2 mt-8" src={aWatch} alt="Apple Watch" />
         </div>
@@ -59,8 +59,8 @@ function Home() {
             iPad Pro 2022
                   </h1>
                   <div className="flex flex-row justify-center mx-auto space-x-8">
-                      <Link to='/Watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Buy {">"}</h1></Link>
-                      <Link to='/Watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Learn More {">"}</h1></Link>
+                      <Link to='/iPad'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Buy {">"}</h1></Link>
+                      <Link to='/iPad'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Learn More {">"}</h1></Link>
           </div>
                   <img className="w-full md:w-1/2 mt-8" src={iPad} alt="iPad" />
         </div>
@@ -76,8 +76,8 @@ function Home() {
             Become Unstoppable with M2
                   </h1>
                   <div className="flex flex-row justify-center mx-auto space-x-8">
-                      <Link to='/Watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Buy {">"}</h1></Link>
-                      <Link to='/Watch'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Learn More {">"}</h1></Link>
+                      <Link to='/mac'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Buy {">"}</h1></Link>
+                      <Link to='/mac'><h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">Learn More {">"}</h1></Link>
           </div>
                   <img className="w-full md:w-1/2 mt-8 md:mb-8" src={macbook} alt="macbook" />
         </div>

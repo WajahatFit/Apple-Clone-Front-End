@@ -52,7 +52,6 @@ export default function Cart() {
       )}
       {cart &&
         cart.map((item) => {
-          console.log(item);
           return (
             <div
               key={item._id}

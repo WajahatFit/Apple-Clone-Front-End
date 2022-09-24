@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { useParams, useNavigate, Link} from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import empty from '../../images/undraw_empty_re_opql.svg'
 import { AuthContext } from '../../context/AuthContext';
 
 
@@ -13,7 +14,7 @@ export default function ProductDetails() {
   const storedToken = localStorage.getItem('authToken');
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-  const { user } = useContext(AuthContext)
+  const { user, isLoggedIn } = useContext(AuthContext)
 
   useEffect(() => {
     const getData = async () => {
@@ -54,9 +55,9 @@ export default function ProductDetails() {
 
   return (
     <div className='bg-black font-sans'>
-      {product && <section id='product' className="flex flex-col mx-auto bg-balck">
+      {product && <section id='product' className="flex flex-col mx-auto">
         <div className="flex flex-col bg-black items-center tracking-widest md:p-4">
-          <div class="text-5xl md:text-6xl md:text-center lg:text-8xl md:py-4 lg:text-center font-extrabold mt-8">
+          <div className="text-5xl md:text-6xl md:text-center lg:text-8xl md:py-4 lg:text-center font-extrabold mt-8">
             <span class=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
             {product.title}
             </span>
@@ -65,7 +66,7 @@ export default function ProductDetails() {
             From ${product.price}
           </h1>
                   <div className="flex flex-row justify-center items-center space-x-8 p-4 md:p-4">
-                      <Link to='/iPhone'><button onClick={handleSubmit} className="text-white bg-sky-600 p-2  md:p-4 text-xl md:text-xl rounded-full lg:text-2xl hover:bg-white hover:text-sky-600">Buy</button></Link>
+            {isLoggedIn && isLoggedIn ? <button onClick={handleSubmit} className="text-white bg-sky-600 p-2  md:p-4 text-xl md:text-xl rounded-full lg:text-2xl hover:bg-white hover:text-sky-600">Buy</button> : <Link to='/login'><button className='text-sky-600 text-xl hover:underline hover:underline-offset-2'>Login to add products in cart{ ' >'}</button></Link>}
           </div>
           <div className='flex flex-row justify-center items-center space-x-8 p-4 md:p-4'>
           {user && user.role === 'admin' ? <button className="text-sky-500 text-l md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2" onClick={() => navigate(`/edit/${id}`)}>Edit product {">"}</button> : ''}
@@ -73,7 +74,7 @@ export default function ProductDetails() {
           </div>
           {product.images && product.images.map((img) => <img className="w-full md:w-1/2 mt-10" src={img} alt={product.title} key={img} />)}
         </div>
-        {!product && <p>Product not found</p>}
+        {!product && <img className="w-full p-4 md:w-2/6" src={empty} alt='empty section'/>}
       </section>
       
       }

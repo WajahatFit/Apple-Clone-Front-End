@@ -6,15 +6,15 @@ import certified from '../images/undraw_certificate_re_yadi.svg'
 export default function Section0() {
     const { isLoggedIn } = useContext(AuthContext);
   return (
-      <div className='bg-gradient-to-b from-indigo-500'>
-           <section>
+      <div className='bg-gradient-to-b from-black'>
+           <section className='text-lightWhite'>
         <div className="container flex flex-col md:flex-row items-center px-6 mx-auto space-y-0 md:space-y-0">
           <div className="flex flex-col space-y-12 md:w-1/2">
             <h1 className="pt-20 max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
               Certified Apple distributor with more than 100 years in the Tech
               Industry
             </h1>
-            <p className="max-w-sm text-center text-darkGrayishBlue md:text-left">
+            <p className="max-w-sm text-center text-black md:text-left">
               We are operating since 1998 bringing the latest Tech products from
               Apple to our clients
             </p>

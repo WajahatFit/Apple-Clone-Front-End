@@ -21,6 +21,7 @@ import Iphone from './views/products/Iphone'
 import Watch from './views/products/Watch'
 import AirPods from './views/products/AirPods'
 import Mac from './views/products/Mac.jsx'
+import Ipad from './views/products/Ipad'
 function App() {
   return (
     <div className="App">
@@ -65,6 +66,7 @@ function App() {
             </IsAdmin>
           }
         />
+        <Route path='/iPad' element={<Ipad />} />
         <Route path='/mac' element={<Mac />} />
         <Route path='/airpods' element={<AirPods />} />
         <Route path='/watch' element={<Watch />} />
