@@ -14,7 +14,7 @@ export default function EditProduct() {
     const getData = async () => {
       try {
         const product = await axios.get(
-          `http://localhost:8000/api/v1/products/${id}`
+          `${process.env.REACT_APP_API_URL}/products/${id}`
         );
         setProduct(product.data.data);
         console.log(product);
