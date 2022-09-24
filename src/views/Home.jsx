@@ -5,7 +5,6 @@ import aWatch from '../images/AppleWatch-homw.jpeg'
 import iPad from '../images/iPadPro.png'
 import airpods from '../images/airpods.png'
 import macbook from '../images/macbookpro.jpeg'
-import macbookAir from '../images/macbookAir.webp'
 import m2 from '../images/mac-m2-chip.webp'
 import appleCard from '../images/card.jpeg'
 import Footer from "../components/Footer";
@@ -15,8 +14,8 @@ function Home() {
   return (
     <div className="font-sans">
       <section id='iPhone' className="flex flex-col mx-auto bg-balck">
-        <div className="flex flex-col bg-black items-center tracking-widest">
-          <div class="text-5xl md:text-6xl md:text-center lg:text-8xl lg:text-center font-extrabold mt-4">
+        <div className="flex flex-col bg-black items-center tracking-widest md:">
+          <div class="text-5xl md:text-6xl md:text-center lg:text-8xl md:py-4 lg:text-center font-extrabold mt-8">
             <span class=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
               Bigger & Faster
                       </span>
@@ -69,7 +68,7 @@ function Home() {
           <div className="flex flex-col bg-black items-center tracking-widest w-full">
           <div class="text-5xl md:text-6xl md:text-center lg:text-8xl lg:text-center font-extrabold mt-12">
             <span class=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-            Macbook Pro M2. Quick fuse...
+            Macbook Pro M2.
                       </span>
           </div>
           <h1 className="text-3xl md:text-3xl md:text-center lg:text-4xl lg:text-center text-center m-10 font-semibold ">
