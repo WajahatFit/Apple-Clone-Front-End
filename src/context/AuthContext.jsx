@@ -1,10 +1,12 @@
 import React, { useState, createContext, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 function AuthProviderWrapper(props) {
   // Store the variables we want to share
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
@@ -43,6 +45,7 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken();
     authenticateUser();
+    navigate('/login')
   }
   useEffect(() => {
     authenticateUser();

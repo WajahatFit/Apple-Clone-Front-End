@@ -9,6 +9,8 @@ export default function EditProduct() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const storedToken = localStorage.getItem('authToken');
+    const [productImages, setProductImages] = useState([]);
+  const [imgForUser, setImgForUser] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -38,7 +40,7 @@ export default function EditProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8000/api/v1/products/${id}`, product);
+      await axios.put(`${process.env.REACT_APP_API_URL}/products/${id}`, product);
       // navigate(`/products/${newProduct.data.data._id}`)
     } catch (error) {
       console.error(error);
@@ -47,13 +49,27 @@ export default function EditProduct() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/products/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } });
+      await axios.delete(`${process.env.REACT_APP_API_URL}/products/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } });
       toast.success('Product deleted successfully')
       navigate('/');
     } catch (error) {
       console.error(error);
     }
   }
+  const handleFileUpload = async (e) => {
+    const uploadData = new FormData();
+    uploadData.append("productImageUrl", e.target.files[0]);
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/products/upload`,
+        uploadData
+      );
+      setProductImages((prev) => [...prev, response.data.fileUrl]);
+      setImgForUser((prev) => [...prev, e.target.files[0].name]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="style">
@@ -92,7 +108,8 @@ export default function EditProduct() {
         <div className="flex flex-row justify-center items-center">
         <fieldset className="space-x-2">
           <legend className="relative left-4 text-black text-xl font-semibold py-4 text-center" >Available products Colors</legend>
-          <input
+            <input
+              required
             type="radio"
             id="Blue"
             name="color"
@@ -101,7 +118,8 @@ export default function EditProduct() {
             checked={product.color === "Blue"}
           />
           <label htmlFor="Blue"></label>
-          <input
+            <input
+              required
             type="radio"
             id="Black"
             name="color"
@@ -110,7 +128,8 @@ export default function EditProduct() {
             checked={product.color === "Black"}
           />
           <label htmlFor="Black"></label>
-          <input
+            <input
+              required
             type="radio"
             id="Red"
             name="color"
@@ -119,7 +138,8 @@ export default function EditProduct() {
             checked={product.color === "Red"}
           />
           <label htmlFor="Red"></label>
-          <input
+            <input
+              required
             type="radio"
             id="Orange"
             name="color"
@@ -128,7 +148,8 @@ export default function EditProduct() {
             checked={product.color === "Orange"}
           />
           <label htmlFor="Black"></label>
-          <input
+            <input
+              required
             type="radio"
             id="Purple"
             name="color"
@@ -138,11 +159,13 @@ export default function EditProduct() {
           />
           <label htmlFor="Purple"></label>
           </fieldset>
-          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center">
         <div className="flex flex-row space-x-4 mt-8">
         <label className='text-lg text-sky-500' htmlFor="newStock">New Product?</label>
           <input
             className="form-checkbox h-5 w-5 text-red-600"
+            required
           type="checkbox"
           name="newStock"
           checked={product.newStock}
@@ -166,9 +189,23 @@ export default function EditProduct() {
           <option value="Apple TV">Apple TV</option>
           <option value="Air Pods">Air Pods</option>
         </select>
+        <br />
+        <br />
+        <input className="border-dashed border-2 border-sky-500 w-fit p-8 mx-auto" type="file" onChange={(e) => handleFileUpload(e)} />
+        <br />
+         {imgForUser && (
+          <ul>
+            {imgForUser.map((elem, i) => {
+              return <li key={i}>{elem}</li>;
+            })}
+          </ul>
+          )}
+          </div>
+        <div className="flex flex-col justify-center items-center">
+        <button className=" text-white rounded-full md:rounded-xl md:p4 mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" onClick={handleSubmit} type="submit">Save</button>
+        <button className="text-white rounded-full md:rounded-xl md:p4 mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" onClick={handleDelete}>Delete</button>
+        </div>
 
-        <button className=" text-white p-4 rounded-xl mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" type="submit">Save</button>
-        <button className="text-white p-4 rounded-xl mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" onClick={handleDelete}>Delete product</button>
 
       </form>
       }

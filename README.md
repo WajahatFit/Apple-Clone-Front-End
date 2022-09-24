@@ -1,12 +1,17 @@
-# Orange Store
+# Orangee Store
 
 ## Description
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 This application is called Apple Store Clone. It is used for buy all the Apple Products from a simple Apple pencil to complex OS system like MacBook Pro M2.
 =======
 This application is called Orange Store. It is used for purchase products of Apple from a simple Apple accessories to Apple Macbook, IMac, Mac Studio and much more. Basically it's a official Retail E-Commerce for All the Apple products.
->>>>>>> 5a6b686 (styles added)
+
+> > > > > > > # 5a6b686 (styles added)
+> > > > > > >
+> > > > > > > This application is called Orange Store. It is used for purchase products of Apple from a simple Apple accessories to Apple Macbook, IMac, Mac Studio and much more. Basically it's a official Retail E-Commerce for All the Apple products.
+> > > > > > > dev
 
 > Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
 > ![](picture.png)

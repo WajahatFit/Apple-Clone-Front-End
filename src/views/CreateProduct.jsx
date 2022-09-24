@@ -41,7 +41,7 @@ export default function CreateProduct() {
     };
     try {
       const newProduct = await axios.post(
-        "http://localhost:8000/api/v1/products/create",
+        `${process.env.REACT_APP_API_URL}/products/create`,
         productToSend,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
@@ -59,7 +59,6 @@ export default function CreateProduct() {
         `${process.env.REACT_APP_API_URL}/products/upload`,
         uploadData
       );
-      console.log(response.data.fileUrl);
       setProductImages((prev) => [...prev, response.data.fileUrl]);
       setImgForUser((prev) => [...prev, e.target.files[0].name]);
     } catch (error) {
@@ -188,8 +187,7 @@ export default function CreateProduct() {
           <option value="Apple Watch">Apple Watch</option>
           <option value="Apple TV">Apple TV</option>
           <option value="Air Pods">Air Pods</option>
-          </select>
-          
+          </select> 
         <br />
         <br />
         <input className="border-dashed border-2 border-sky-500 w-fit p-8 mx-auto" type="file" onChange={(e) => handleFileUpload(e)} />

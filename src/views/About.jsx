@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 export default function About() {
   return (
     <>
-      <div>
+      <div className="bg-lightWhite">
         <Section0 />
         <Section1 />
         <Section2 />

@@ -8,7 +8,7 @@ export default function Navbar() {
   const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
   //const navigate = useNavigate();
   return (
-    <div className="bg-black bg-opacity-80 w-screen sticky top-0">
+    <div className="bg-black bg-opacity-80 w-screen sticky top-0 z-50">
       <nav className=" container mx-auto">
         <div className="flex items-center justify-between">
           <div>
