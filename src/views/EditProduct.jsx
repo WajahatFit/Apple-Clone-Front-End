@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams,  useNavigate } from "react-router-dom";
 import axios from "axios";
+import create from '../images/undraw_up_to_date_re_nqid.svg'
 import toast from 'react-hot-toast';
 
 export default function EditProduct() {
@@ -55,9 +56,13 @@ export default function EditProduct() {
   }
 
   return (
-    <div>
+    <div className="style">
+      <h1 className="text-black text-3xl text-bold text-center mt-4 mb-6 font-extrabold" >Edit product</h1>
+      <img src={ create} alt='create' className="w-40 mx-auto" />
       {product && <form onSubmit={handleSubmit}>
         <input
+                  required
+          className="bg-s"
           type="text"
           name="title"
           placeholder="Title"
@@ -65,6 +70,8 @@ export default function EditProduct() {
           onChange={handleChange}
         />
         <input
+                  required
+          className="bg-s"
           type="text"
           name="description"
           placeholder="Description"
@@ -72,15 +79,19 @@ export default function EditProduct() {
           onChange={handleChange}
         />
         <input
+                  required
+          className="bg-s"
           type="number"
           name="price"
           placeholder="Price"
+          min='0'
           value={product.price}
           onChange={handleChange}
         />
         {/* <input type="radio" name="color" placeholder="Color" value={product.color} onChange={handleChange} id='color'/> */}
-        <fieldset>
-          <legend>Available products Colors</legend>
+        <div className="flex flex-row justify-center items-center">
+        <fieldset className="space-x-2">
+          <legend className="relative left-4 text-black text-xl font-semibold py-4 text-center" >Available products Colors</legend>
           <input
             type="radio"
             id="Blue"
@@ -89,7 +100,7 @@ export default function EditProduct() {
             onChange={handleChange}
             checked={product.color === "Blue"}
           />
-          <label htmlFor="Blue">Blue</label>
+          <label htmlFor="Blue"></label>
           <input
             type="radio"
             id="Black"
@@ -98,7 +109,7 @@ export default function EditProduct() {
             onChange={handleChange}
             checked={product.color === "Black"}
           />
-          <label htmlFor="Black">Black</label>
+          <label htmlFor="Black"></label>
           <input
             type="radio"
             id="Red"
@@ -107,7 +118,7 @@ export default function EditProduct() {
             onChange={handleChange}
             checked={product.color === "Red"}
           />
-          <label htmlFor="Red">Red</label>
+          <label htmlFor="Red"></label>
           <input
             type="radio"
             id="Orange"
@@ -116,7 +127,7 @@ export default function EditProduct() {
             onChange={handleChange}
             checked={product.color === "Orange"}
           />
-          <label htmlFor="Black">Orange</label>
+          <label htmlFor="Black"></label>
           <input
             type="radio"
             id="Purple"
@@ -125,24 +136,29 @@ export default function EditProduct() {
             onChange={handleChange}
             checked={product.color === "Purple"}
           />
-          <label htmlFor="Purple">Purple</label>
-        </fieldset>
-        <label htmlFor="newStock">New Product?</label>
-        <input
+          <label htmlFor="Purple"></label>
+          </fieldset>
+          </div>
+        <div className="flex flex-row space-x-4 mt-8">
+        <label className='text-lg text-sky-500' htmlFor="newStock">New Product?</label>
+          <input
+            className="form-checkbox h-5 w-5 text-red-600"
           type="checkbox"
           name="newStock"
           checked={product.newStock}
           onChange={handleChange}
           id="newStock"
         />
-        <label htmlFor="category">Choose a Category for the Product</label>
+        </div>
+
+        <label className="flex flex-row m-4 " htmlFor="category">Choose a Category for the Product</label>
         <select
           id="category"
           value={product.category}
           onChange={handleChange}
           name="category"
         >
-          <option value="Mac">--Choose a Category--</option>
+          <option className=".list">--Choose a Category--</option>
           <option value="Mac">Mac</option>
           <option value="Iphone">Iphone</option>
           <option value="Ipad">Ipad</option>
@@ -151,8 +167,8 @@ export default function EditProduct() {
           <option value="Air Pods">Air Pods</option>
         </select>
 
-        <button className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight" type="submit">Save Changes</button>
-        <button className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight" onClick={handleDelete}>Delete product</button>
+        <button className=" text-white p-4 rounded-xl mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" type="submit">Save</button>
+        <button className="text-white p-4 rounded-xl mb-4 bg-indigo-500 hover:bg-brightRed active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 drop-shadow-lg" onClick={handleDelete}>Delete product</button>
 
       </form>
       }

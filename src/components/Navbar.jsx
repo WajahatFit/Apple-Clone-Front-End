@@ -29,6 +29,54 @@ export default function Navbar() {
                 Home
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                className={(element) =>
+                  element.isActive
+                    ? "text-white text-xl"
+                    : "text-slate-300 text-xl hover:text-darkGrayishBlue"
+                }
+                to="/products"
+              >
+                Products
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={(element) =>
+                  element.isActive
+                    ? "text-white text-xl"
+                    : "text-slate-300 text-xl hover:text-darkGrayishBlue"
+                }
+                to="/Mac"
+              >
+                Mac
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={(element) =>
+                  element.isActive
+                    ? "text-white text-xl"
+                    : "text-slate-300 text-xl hover:text-darkGrayishBlue"
+                }
+                to="/watch"
+              >
+                Watch
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={(element) =>
+                  element.isActive
+                    ? "text-white text-xl"
+                    : "text-slate-300 text-xl hover:text-darkGrayishBlue"
+                }
+                to="/iphone"
+              >
+                iPhone
+              </NavLink>
+            </li>
             {user && user.role === "admin" && (
               <li>
                 <NavLink
@@ -57,18 +105,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
             )}
-            <li>
-              <NavLink
-                className={(element) =>
-                  element.isActive
-                    ? "text-white text-xl"
-                    : "text-slate-300 text-xl hover:text-darkGrayishBlue"
-                }
-                to="/products"
-              >
-                Products
-              </NavLink>
-            </li>
+
             <li>
               <NavLink
                 className={(element) =>

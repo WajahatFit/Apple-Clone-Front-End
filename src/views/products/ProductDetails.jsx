@@ -46,5 +46,6 @@ export default function ProductDetails() {
         </div>)}
       {!product && <p>Product not found</p>}
     </div>
+    
   )
 }

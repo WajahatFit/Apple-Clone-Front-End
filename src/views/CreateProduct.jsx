@@ -26,7 +26,6 @@ export default function CreateProduct() {
         ...prev,
         [name]: type === "checkbox" ? checked : value,
       };
-      console.log(value)
     });
   };
   const handleSubmit = async (e) => {
@@ -82,6 +81,7 @@ export default function CreateProduct() {
           onChange={handleChange}
         />
         <input
+          required
           className="bg-s"
           type="text"
           name="description"
@@ -90,6 +90,7 @@ export default function CreateProduct() {
           onChange={handleChange}
         />
         <input
+          required
           className="bg-s"
           type="number"
           name="price"
@@ -102,6 +103,7 @@ export default function CreateProduct() {
         <fieldset className="space-x-2">
           <legend className="relative left-4 text-black text-xl font-semibold py-4 text-center">Select a color</legend>
           <input
+            required
             
             className="radio"
             type="radio"
@@ -113,6 +115,7 @@ export default function CreateProduct() {
           />
           <label htmlFor="Blue"></label>
           <input
+            required
             type="radio"
             id="Black"
             name="color"
@@ -122,6 +125,7 @@ export default function CreateProduct() {
           />
           <label htmlFor="Black"></label>
           <input
+            required
             type="radio"
             id="Red"
             name="color"
@@ -131,6 +135,7 @@ export default function CreateProduct() {
           />
           <label htmlFor="Red"></label>
           <input
+            required
             type="radio"
             id="Orange"
             name="color"
@@ -140,6 +145,7 @@ export default function CreateProduct() {
           />
           <label htmlFor="Orange"></label>
           <input
+            required
             type="radio"
             id="Purple"
             name="color"
@@ -151,9 +157,11 @@ export default function CreateProduct() {
           <label htmlFor="Purple"></label>
           </fieldset>
           </div>
-        <div className="font-normal space-x-4 mt-8">
-        <label className='text-lg' htmlFor="newStock">New Product?</label>
-        <input
+        <div className="flex flex-row space-x-4 mt-8">
+        <label className='text-lg text-sky-500' htmlFor="newStock"> <span className="inline">New Product?</span></label>
+          <input
+          className="form-checkbox h-5 w-5 text-red-600"
+          required
           type="checkbox"
           name="newStock"
           checked={product.newStock}
@@ -165,7 +173,7 @@ export default function CreateProduct() {
             
            
        
-        <label className="flex flex-row m-4" htmlFor="category">Choose a Category for the Product </label>
+        <label className="flex flex-row m-4 " htmlFor="category">Choose a Category for the Product </label>
      
         <select
           id="category"
