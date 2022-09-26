@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import logo from "../images/project logo.png";
+import 'animate.css';
 
 
 export default function Navbar() {
   const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
   return (
     <div className="bg-black bg-opacity-80 w-screen fixed top-0 left-0 z-50">
-      <nav className=" container mx-auto">
+      <nav className=" animate__fadeInRight container mx-auto">
         <div className="flex items-center justify-between">
           <div>
             <NavLink to="/">

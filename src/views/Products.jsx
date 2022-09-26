@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import toast from 'react-hot-toast'
-
+import toast from "react-hot-toast";
+import "animate.css";
 
 export default function Products() {
   const [products, setProducts] = useState(null);
-  const storedToken = localStorage.getItem('authToken');
-  const { isLoggedIn } = useContext(AuthContext)
-  const navigate = useNavigate();
+  const storedToken = localStorage.getItem("authToken");
+  const { isLoggedIn } = useContext(AuthContext);
+
 
   useEffect(() => {
     const getProduct = async () => {
@@ -17,8 +17,7 @@ export default function Products() {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/products`
         );
-        setProducts(response.data);
-        console.log(products);
+        setProducts(response.data.data);
       } catch (error) {
         console.error(error);
       }
@@ -26,7 +25,6 @@ export default function Products() {
     getProduct();
     // eslint-disable-next-line
   }, []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -36,7 +34,6 @@ export default function Products() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
       toast.success("Products added to the cart");
-      navigate('/products')
     } catch (err) {
       console.error(err);
     }
@@ -47,16 +44,11 @@ export default function Products() {
       {/* <img className="user--img" src={user.profilePic} alt={user.email}></img> */}
       {!products && <p>No products found in the DB</p>}
       {products &&
-        products.data.map((product) => {
+        products.map((product) => {
           return (
-            
-            <div
-              className=""
-              key={product.title}
-            ><Link to={"/products/" + product._id}>
-              
-              <div className="flex-1 flex flex-col items-center justify-center space-x-4 space-y-4 p-4">
-                
+            <div className="animate__fadeIn" key={product.title}>
+              <Link to={"/products/" + product._id}>
+                <div className="flex-1 flex flex-col items-center justify-center space-x-4 space-y-4 p-4">
                   <span className="text-3xl text-center md:text-5xl md:text-center lg:text-6xl md:py-4 lg:text-center font-extrabold mt-8  bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                     {product.title}
                   </span>
@@ -67,30 +59,33 @@ export default function Products() {
                     {product.description}
                   </h1>
                   <div className="sm:w-60">
-                  <img
-                    className="w-full"
-                    src={product.images[0]}
-                    alt={product.title}
-                  />
+                    <img
+                      className="w-full"
+                      src={product.images[0]}
+                      alt={product.title}
+                    />
                   </div>
                   <div>
-                    {isLoggedIn && isLoggedIn ? <button onClick={handleSubmit} className="text-sky-500 text-2xl hover:underline hover:underline-offset-2">add to Cart { '>'}</button> : <Link to='/login'><button className='text-sky-600 text-xl hover:underline hover:underline-offset-2'>Login to add products in cart{ ' >'}</button></Link>}
+                    {isLoggedIn && isLoggedIn ? (
+                      <button
+                        onClick={handleSubmit}
+                        className="text-sky-500 text-2xl hover:underline hover:underline-offset-2"
+                      >
+                        add to Cart {">"}
+                      </button>
+                    ) : (
+                      <Link to="/login">
+                        <button className="text-sky-600 text-xl hover:underline hover:underline-offset-2">
+                          Login to add products in cart{" >"}
+                        </button>
+                      </Link>
+                    )}
                   </div>
-              
                 </div>
-                </Link>
-              
-                </div>
-                
-            
-            
+              </Link>
+            </div>
           );
         })}
     </div>
   );
 }
-
-// {product.images.map(image => <img
-//   className="rounded-lg object-cover"
-//   src={product.images[0]}
-//   alt={product.title} />)}

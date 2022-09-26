@@ -94,8 +94,3 @@ export default function Products() {
     </div>
   );
 }
-
-// {product.images.map(image => <img
-//   className="rounded-lg object-cover"
-//   src={product.images[0]}
-//   alt={product.title} />)}

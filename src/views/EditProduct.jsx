@@ -205,7 +205,7 @@ export default function EditProduct() {
             </select>
             <br />
             <br />
-            {productImages && <p>{ productImages}</p>}
+            {productImages && <p>{productImages}</p>}
             {imgForUser && (
               <ul>
                 {imgForUser.map((elem, i) => {
@@ -219,7 +219,6 @@ export default function EditProduct() {
               onChange={(e) => handleFileUpload(e)}
             />
             <br />
-            
           </div>
           <div className="flex flex-col justify-center items-center">
             <button

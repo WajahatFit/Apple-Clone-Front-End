@@ -4,11 +4,11 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "../auth/Login.css";
-import 'animate.css';
+import "animate.css";
 
 export default function Login() {
   const { storeToken, authenticateUser } = useContext(AuthContext);
-  const [showPin, setShowPin] = useState('password');
+  const [showPin, setShowPin] = useState("password");
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -17,13 +17,13 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState([]);
   const navigate = useNavigate();
 
-  const handleShowPin = (e) => { 
-    if (showPin === 'password') { 
-      setShowPin('text')
+  const handleShowPin = (e) => {
+    if (showPin === "password") {
+      setShowPin("text");
       return;
     }
-    setShowPin('password')
-  }
+    setShowPin("password");
+  };
 
   const handleChange = (e) => {
     setUser((prev) => {
@@ -87,7 +87,12 @@ export default function Login() {
                 value={user.password}
                 onChange={handleChange}
               />
-              <p className="cursor-pointer text-center p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight mb-4'" onClick={handleShowPin}>{showPin ==='password' ? 'Show' : 'Hide'} password</p>
+              <p
+                className="cursor-pointer text-center p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight mb-4'"
+                onClick={handleShowPin}
+              >
+                {showPin === "password" ? "Show" : "Hide"} password
+              </p>
             </div>
             <div className="text-center mt-6">
               <button
@@ -98,7 +103,9 @@ export default function Login() {
               </button>
               <p className="mt-4 text-lg">
                 Not a member?{" "}
-                <Link to='/signup'><span className="underline cursor-pointer">Register</span></Link>
+                <Link to="/signup">
+                  <span className="underline cursor-pointer">Register</span>
+                </Link>
               </p>
             </div>
           </div>

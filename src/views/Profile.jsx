@@ -63,8 +63,8 @@ export default function Profile() {
   return (
     <div className=" bg-black font-sans flex flex-col items-center justify-around h-full md:flex-row uppercase p-12">
       <div className="w-1/2 bg-black rounded-3xl">
-        <img className="w-full mx-auto my-4" src={img} alt="mobile" />
-        <img className="absolute -top-20 left-0" src={wave} alt='wave' />
+        <img className="w-full mx-auto my-4 lg:w-2/4" src={img} alt="mobile" />
+        <img className="absolute -top-20 left-0" src={wave} alt="wave" />
       </div>
       <div className="w-1/2 flex flex-col rounded-3xl">
         <div className="flex flex-col justify-center items-center space-y-4 text-white text-3xl">
@@ -78,18 +78,20 @@ export default function Profile() {
           className="flex flex-col p-8 space-x-4 space-y-6 items-center md:items-start"
           onSubmit={handleSubmit}
         >
-          <label className="text-2xl text-black ml-4">User name</label>
+          <label className="text-xl md:2xl text-lightWhite ml-4">
+            User name
+          </label>
           <input
-            className="rounded-2xl p-4 border w-full m-4 text-xl"
+            className="rounded-2xl p-4 md:px-4 border md:w-full m-4 text-sm md:text-xl"
             required
             type="text"
             name="username"
             value={userData.username}
             onChange={handleChange}
           />
-          <label className="text-2xl text-black ml-4">Email</label>
+          <label className="text-xl md:2xl text-lightWhite ml-4">Email</label>
           <input
-            className="rounded-2xl p-4 border w-full m-4 text-xl"
+            className="rounded-2xl p-4 md:px-4 border md:w-full m-4 text-sm md:text-xl"
             required
             type="email"
             name="email"
@@ -97,7 +99,7 @@ export default function Profile() {
             onChange={handleChange}
           />
           <button
-            className="ml-8 bg-sky-500 p-6 text-2xl text-white rounded-xl"
+            className=" md:ml-8 bg-sky-500 p-2 w-full md:p-6  text-sm md:text-2xl text-white rounded-xl"
             type="submit"
           >
             Save changes & log out

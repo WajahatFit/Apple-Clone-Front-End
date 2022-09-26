@@ -16,12 +16,13 @@ export default function Cart() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         );
         setCart(response.data.data[0].products);
+        console.log(response.data.data[0] ,'product in cart')
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
     getCart();
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, []);
   const handleDelete = async (productId) => {
     try {
@@ -38,28 +39,6 @@ export default function Cart() {
   };
   return (
     <div className="font-sans bg-black">
-      {cart && cart.length === 0 && (
-        <div className="flex flex-col items-center space-y-8">
-          <img
-            className="w-full md:w-2/6 mt-40"
-            src={cartImg}
-            alt="Empty Cart svg"
-          />
-          <p className="text-2xl md:text-4xl">Empty Cart</p>
-          <Link to="/products">
-            <button className="text-indigo-600 rounded-full p-4 text-lightWhite text-xl font-bold hover:underline hover:underline-offset-2 md:text-3xl">
-              Discover Products{" >"}
-            </button>
-          </Link>
-          <div>
-            <img
-              src={wave}
-              alt="wave"
-              className="absolute bottom-0 left-0 -z-5"
-            />
-          </div>
-        </div>
-      )}
       {cart &&
         cart.map((item) => {
           return (
@@ -95,7 +74,7 @@ export default function Cart() {
                   </Link>
                   <button
                     onClick={() => handleDelete(item._id)}
-                    className="bg-brightRed p-4 rounded-full text-white m-4"
+                    className="bg-sky-500 p-4 rounded-full text-white m-4"
                   >
                     Delete
                   </button>
@@ -104,6 +83,28 @@ export default function Cart() {
             </div>
           );
         })}
+      {cart && cart.length === 0 && (
+        <div className="flex flex-col md:flex-col-reverse items-center space-y-8">
+          <img
+            className="w-full md:w-2/6 mt-40"
+            src={cartImg}
+            alt="Empty Cart svg"
+          />
+          <p className="text-2xl md:text-4xl">Empty Cart</p>
+          <Link to="/products">
+            <button className="text-indigo-600 rounded-full p-4 text-lightWhite text-xl font-bold hover:underline hover:underline-offset-2 md:text-3xl">
+              Discover Products{" >"}
+            </button>
+          </Link>
+          <div>
+            <img
+              src={wave}
+              alt="wave"
+              className="absolute bottom-0 left-0 -z-5"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
