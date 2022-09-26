@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import toast from "react-hot-toast";
+import userImg from "../images/undraw_male_avatar_323b.svg";
+import img from "../images/undraw_develop_app_re_bi4i.svg";
+import wave from "../images/wave (1).svg";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -46,44 +49,61 @@ export default function Profile() {
         uploadData
       );
       console.log(response.data.fileUrl);
-      setUserData(prev => { 
+      setUserData((prev) => {
         return {
           ...prev,
-          profilePic: response.data.fileUrl
-        }
-      })
+          profilePic: response.data.fileUrl,
+        };
+      });
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div>
-      <h2>Editing {userData.username}'s profile</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          required
-          type="text"
-          name="username"
-          value={userData.username}
-          onChange={handleChange}
-        />
-        <input
-          required
-          type="email"
-          name="email"
-          value={userData.email}
-          onChange={handleChange}
-        />
-        <input
-          required
-          type="file"
-          name="profileImage"
-          value={userData.profileImage}
-          onChange={handleFileUpload}
-        />
-        <button type="submit">Save changes and log out</button>
-      </form>
+    <div className=" bg-black font-sans flex flex-col items-center justify-around h-full md:flex-row uppercase p-12">
+      <div className="w-1/2 bg-black rounded-3xl">
+        <img className="w-full mx-auto my-4" src={img} alt="mobile" />
+        <img className="absolute -top-20 left-0" src={wave} alt='wave' />
+      </div>
+      <div className="w-1/2 flex flex-col rounded-3xl">
+        <div className="flex flex-col justify-center items-center space-y-4 text-white text-3xl">
+          <h2 className="">Welcome</h2>
+          <h2 className="mx-auto text-xl">{userData.username}</h2>
+          <img className="w-20 mx-auto" src={userImg} alt="avatar" />
+        </div>
+        <div></div>
+
+        <form
+          className="flex flex-col p-8 space-x-4 space-y-6 items-center md:items-start"
+          onSubmit={handleSubmit}
+        >
+          <label className="text-2xl text-black ml-4">User name</label>
+          <input
+            className="rounded-2xl p-4 border w-full m-4 text-xl"
+            required
+            type="text"
+            name="username"
+            value={userData.username}
+            onChange={handleChange}
+          />
+          <label className="text-2xl text-black ml-4">Email</label>
+          <input
+            className="rounded-2xl p-4 border w-full m-4 text-xl"
+            required
+            type="email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+          <button
+            className="ml-8 bg-sky-500 p-6 text-2xl text-white rounded-xl"
+            type="submit"
+          >
+            Save changes & log out
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

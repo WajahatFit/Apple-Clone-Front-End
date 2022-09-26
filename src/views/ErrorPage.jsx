@@ -5,7 +5,7 @@ import '../views/ErrorPage.css'
 
 export default function ErrorPage() {
   return (
-    <div>
+    <div className='error-page'>
       <div class="main">
     	<div class="fof">
           <h1>Error 404</h1> <br>

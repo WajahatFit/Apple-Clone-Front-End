@@ -25,7 +25,7 @@ import Ipad from './views/products/Ipad'
 function App() {
   return (
     <div className="App">
-      <Toaster position="top-right" reverseOrder={true} />
+      <Toaster position="top-center" reverseOrder={true} />
       <Navbar />
       <Routes>
         <Route path="/products" element={<Products />} />

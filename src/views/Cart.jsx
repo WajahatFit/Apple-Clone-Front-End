@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import cartImg from "../images/undraw_empty_cart_co35.svg";
 import { Link } from "react-router-dom";
+import wave from "../images/wave (2).svg";
 
 export default function Cart() {
   const storedToken = localStorage.getItem("authToken");
@@ -16,11 +17,11 @@ export default function Cart() {
         );
         setCart(response.data.data[0].products);
       } catch (error) {
-        // Check in
+        console.log(error)
       }
     };
     getCart();
-    // eslint-disable-next-line
+    // eslint-disable-next-line 
   }, []);
   const handleDelete = async (productId) => {
     try {
@@ -36,18 +37,27 @@ export default function Cart() {
     }
   };
   return (
-    <div className="font-sans h-full bg-black">
+    <div className="font-sans bg-black">
       {cart && cart.length === 0 && (
-        <div className="flex flex-col justify-center items-center space-y-8">
+        <div className="flex flex-col items-center space-y-8">
           <img
-            className="w-full p-4 md:w-2/6"
+            className="w-full md:w-2/6 mt-40"
             src={cartImg}
             alt="Empty Cart svg"
           />
           <p className="text-2xl md:text-4xl">Empty Cart</p>
           <Link to="/products">
-            <button className="text-sky-600 rounded-full p-4 text-lightWhite text-xl font-bold hover:underline hover:underline-offset-2 md:text-3xl" >Discover Products{' >'}</button>
+            <button className="text-indigo-600 rounded-full p-4 text-lightWhite text-xl font-bold hover:underline hover:underline-offset-2 md:text-3xl">
+              Discover Products{" >"}
+            </button>
           </Link>
+          <div>
+            <img
+              src={wave}
+              alt="wave"
+              className="absolute bottom-0 left-0 -z-5"
+            />
+          </div>
         </div>
       )}
       {cart &&

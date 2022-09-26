@@ -1,21 +1,18 @@
 .style {
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  background: #e1e1e1;
+  background: #cbcbcb;
   -webkit-box-shadow: 17px 17px 18px #bfbfbf, -17px -17px 18px #ffffff;
-  box-shadow: 17px 17px 18px #bfbfbf, -17px -17px 18px #ffffff;
-  height: 89vh;
-  width: 550px;
-  margin: 0 auto;
+  box-shadow: 17px 17px 18px #6f6f6f, -17px -17px 18px #807f7f;
+  width: 500px;
   padding: 16px;
-  margin-top: 30px;
 }
 
 .bg-s {
   margin-bottom: 25px;
   border: none;
   background-color: transparent;
-  box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.55),
+  box-shadow: inset -10px -10px 15px rgba(127, 127, 127, 0.55),
     inset 10px 10px 15px rgba(70, 70, 70, 0.12);
   padding: 10px;
   width: 90%;
@@ -25,7 +22,7 @@
 ::placeholder {
   font-size: 16px;
   font-weight: 500;
-  color: #808080;
+  color: #bdbdbd;
   letter-spacing: 1.3px;
 }
 input[type="radio"] {
@@ -36,7 +33,7 @@ input[type="radio"] {
   border: none;
   height: 40px;
   width: 40px;
-  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.55),
+  box-shadow: 10px 10px 15px rgba(166, 166, 166, 0.55),
     10px 10px 15px rgba(70, 70, 70, 0.12);
   margin-right: 30px;
   border-radius: 30px;

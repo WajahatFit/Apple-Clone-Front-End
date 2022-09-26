@@ -47,7 +47,7 @@ export default function ProductDetails() {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
       toast.success("Products added to the cart");
-      navigate('/cart')
+      navigate('/products')
     } catch (err) {
       console.error(err);
     }
@@ -58,7 +58,7 @@ export default function ProductDetails() {
       {product && <section id='product' className="flex flex-col mx-auto">
         <div className="flex flex-col bg-black items-center tracking-widest md:p-4">
           <div className="text-5xl md:text-6xl md:text-center lg:text-8xl md:py-4 lg:text-center font-extrabold mt-8">
-            <span class=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+            <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
             {product.title}
             </span>
           </div>
@@ -66,7 +66,7 @@ export default function ProductDetails() {
             From ${product.price}
           </h1>
                   <div className="flex flex-row justify-center items-center space-x-8 p-4 md:p-4">
-            {isLoggedIn && isLoggedIn ? <button onClick={handleSubmit} className="text-white bg-sky-600 p-2  md:p-4 text-xl md:text-xl rounded-full lg:text-2xl hover:bg-white hover:text-sky-600">Buy</button> : <Link to='/login'><button className='text-sky-600 text-xl hover:underline hover:underline-offset-2'>Login to add products in cart{ ' >'}</button></Link>}
+            {isLoggedIn && isLoggedIn ? <button onClick={handleSubmit} className="text-white bg-sky-600 p-2  md:p-4 text-xl md:text-xl rounded-full lg:text-2xl hover:bg-white hover:text-sky-600">add to Cart</button> : <Link to='/login'><button className='text-sky-600 text-xl hover:underline hover:underline-offset-2'>Login to add products in cart{ ' >'}</button></Link>}
           </div>
           <div className='flex flex-row justify-center items-center space-x-8 p-4 md:p-4'>
           {user && user.role === 'admin' ? <button className="text-sky-500 text-l md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2" onClick={() => navigate(`/edit/${id}`)}>Edit product {">"}</button> : ''}
