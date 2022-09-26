@@ -3,8 +3,8 @@ import { AuthContext } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 
 function IsAdmin({ children }) {
-  const { isAdmin } = useContext(AuthContext);
-  if (isAdmin) {
+  const { IsAdmin } = useContext(AuthContext);
+  if (IsAdmin) {
     return children;
   } else {
     return <Navigate to="/" />;

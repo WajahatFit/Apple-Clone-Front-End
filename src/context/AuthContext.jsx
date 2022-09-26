@@ -10,7 +10,7 @@ function AuthProviderWrapper(props) {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setLoading] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [IsAdmin, setIsAdmin] = useState(false);
   // Functions to store and delete the token received by the backend in the browser
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
@@ -51,7 +51,7 @@ function AuthProviderWrapper(props) {
     authenticateUser();
   }, []);
   return (
-    <AuthContext.Provider value={{ user, isAdmin, isLoggedIn, isLoading, storeToken, authenticateUser, logOutUser }}>
+    <AuthContext.Provider value={{ user, IsAdmin, isLoggedIn, isLoading, storeToken, authenticateUser, logOutUser }}>
       {props.children}
     </AuthContext.Provider>
   )
