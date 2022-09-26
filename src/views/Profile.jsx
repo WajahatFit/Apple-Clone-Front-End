@@ -40,25 +40,25 @@ export default function Profile() {
       console.error(error);
     }
   };
-  const handleFileUpload = async (e) => {
-    const uploadData = new FormData();
-    uploadData.append("productImageUrl", e.target.files[0]);
-    try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/upload`,
-        uploadData
-      );
-      console.log(response.data.fileUrl);
-      setUserData((prev) => {
-        return {
-          ...prev,
-          profilePic: response.data.fileUrl,
-        };
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleFileUpload = async (e) => {
+  //   const uploadData = new FormData();
+  //   uploadData.append("productImageUrl", e.target.files[0]);
+  //   try {
+  //     const response = await axios.post(
+  //       `${process.env.REACT_APP_API_URL}/auth/upload`,
+  //       uploadData
+  //     );
+  //     console.log(response.data.fileUrl);
+  //     setUserData((prev) => {
+  //       return {
+  //         ...prev,
+  //         profilePic: response.data.fileUrl,
+  //       };
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div className=" bg-black font-sans flex flex-col items-center justify-around h-full md:flex-row uppercase p-12">
