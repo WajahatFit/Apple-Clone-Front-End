@@ -22,6 +22,8 @@ import Watch from "./views/products/Watch";
 import AirPods from "./views/products/AirPods";
 import Mac from "./views/products/Mac.jsx";
 import Ipad from "./views/products/Ipad";
+import Checkout from "./views/Checkout";
+import Success from "./views/Success";
 function App() {
   return (
     <div className="App">
@@ -73,6 +75,8 @@ function App() {
         <Route path="/iPhone" element={<Iphone />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/success" element={<Success />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

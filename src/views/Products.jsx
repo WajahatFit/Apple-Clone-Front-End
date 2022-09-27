@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link} from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import toast from "react-hot-toast";
 import "animate.css";
 
 export default function Products() {
   const [products, setProducts] = useState(null);
-  const storedToken = localStorage.getItem("authToken");
-  const { isLoggedIn } = useContext(AuthContext);
 
 
   useEffect(() => {
@@ -25,19 +21,6 @@ export default function Products() {
     getProduct();
     // eslint-disable-next-line
   }, []);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      axios.post(
-        `${process.env.REACT_APP_API_URL}/cart/checkcart`,
-        { productId: products._id },
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      );
-      toast.success("Products added to the cart");
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
     <div className="capitalize flex flex-col sm:flex sm:flex-row sm:justify-around sm:items-start sm:flex-wrap bg-black sm:w-full p-4">
@@ -66,20 +49,11 @@ export default function Products() {
                     />
                   </div>
                   <div>
-                    {isLoggedIn && isLoggedIn ? (
-                      <button
-                        onClick={handleSubmit}
-                        className="text-sky-500 text-2xl hover:underline hover:underline-offset-2"
-                      >
-                        add to Cart {">"}
-                      </button>
-                    ) : (
-                      <Link to="/login">
+                    <Link to={"/products/" + product._id}>
                         <button className="text-sky-600 text-xl hover:underline hover:underline-offset-2">
                           Login to add products in cart{" >"}
                         </button>
                       </Link>
-                    )}
                   </div>
                 </div>
               </Link>

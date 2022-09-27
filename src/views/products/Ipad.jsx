@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Products() {
-  const [products, setProducts] = useState(null);
+
   const [filtered, setFiltered] = useState(null);
   const storedToken = localStorage.getItem("authToken");
   const { isLoggedIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     const getProduct = async () => {
@@ -17,7 +17,7 @@ export default function Products() {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/products`
         );
-        setProducts(response.data);
+
         setFiltered(response.data.data);
       } catch (error) {
         console.error(error);
@@ -27,18 +27,17 @@ export default function Products() {
     // eslint-disable-next-line
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const addToCart = async (productId) => {
     try {
       axios.post(
         `${process.env.REACT_APP_API_URL}/cart/checkcart`,
-        { productId: products._id },
+        { productId},
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
       toast.success("Products added to the cart");
-      navigate("/products");
     } catch (err) {
       console.error(err);
+      toast.error("Unable to add products");
     }
   };
 
@@ -73,7 +72,7 @@ export default function Products() {
                     <div>
                       {isLoggedIn && isLoggedIn ? (
                         <button
-                          onClick={handleSubmit}
+                          onClick={()=> addToCart(product._id)}
                           className="text-sky-500 text-2xl hover:underline hover:underline-offset-2"
                         >
                           add to Cart {">"}

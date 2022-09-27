@@ -16,7 +16,7 @@ export default function Cart() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         );
         setCart(response.data.data[0].products);
-        console.log(response.data.data[0] ,'product in cart')
+        console.log(response.data.data[0].products, 'product in cart')
       } catch (error) {
         console.log(error);
       }
@@ -31,49 +31,38 @@ export default function Cart() {
         {},
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
-      setCart(response.data.data.products);
-      console.log(cart);
+      setCart(response.data.data[0].products);
     } catch (error) {
       // Check in
     }
   };
   return (
-    <div className="font-sans bg-black">
+    <div className="font-sans bg-black p-24 md:flex md:flex-row md:justify-center md:items-center">
       {cart &&
-        cart.map((item) => {
+        cart.map((elem) => {
           return (
             <div
-              key={item._id}
-              className="flex flex-col justify-center items-center"
+              key={elem._id}
             >
-              <div className="container flex flex-row items-center justify-center bg-gradient-to-r from-sky-500 to-indigo-500 m-6 rounded-lg">
-                <div className="flex flex-col items-center space-y-6 p-6 w-1/2">
-                  {item.newStock ? (
-                    <h2 className="text-white text-2xl">
-                      {" "}
-                      <span className="text-white text-3xl">New</span>{" "}
-                      {item.title}
-                    </h2>
-                  ) : (
-                    <h1 className="text-2xl">{item.title}</h1>
-                  )}
-                  <p className="text-gray-600">{item.description}</p>
-                  <p className="text-4xl">{item.price}$</p>
+              <div className="md:justify-between">
+                <div className="flex flex-col items-center justify-center space-y-4 p-4">
+                  <div className="flex flex-col items-center space-y-4">
+                  <h1 className="text-2xl md:text-5xl">{elem.title}</h1>
+                  
+                  <p className="text-gray-600 md:text-2xl">{elem.description}</p>
+                  <p className="text-4xl">{elem.price}$</p>
+                 </div>
+                    
                 </div>
-                <div className="flex flex-col space-y-6 p-6 w-1/2">
-                  <h1 className="text-black text-xl">
-                    Product Id:{" "}
-                    <span className="text-gray-600 text-lg">{item._id}</span>
-                  </h1>
-                </div>
-                <div className="flex items-center">
-                  <Link to="/">
+                <img className="w-full md:w-2/4 md:mx-auto" src={elem.images} alt={ elem.title} />
+                <div className="flex flex-row justify-center items-center">
+                  <Link to="/checkout">
                     <button className="bg-brightRed p-4 rounded-full text-white m-4">
                       Checkout
                     </button>
                   </Link>
                   <button
-                    onClick={() => handleDelete(item._id)}
+                    onClick={() => handleDelete(elem._id)}
                     className="bg-sky-500 p-4 rounded-full text-white m-4"
                   >
                     Delete

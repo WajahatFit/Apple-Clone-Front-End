@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "../auth/Login.css";
-import "animate.css";
+
 
 export default function Login() {
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -56,7 +56,7 @@ export default function Login() {
       <div class="context">
         <form
           onSubmit={handleSubmit}
-          className="min-h-screen flex justify-center items-center animate__fadeInUp"
+          className="min-h-screen flex justify-center items-center"
         >
           <div className="absolute w-60 h-60 rounded-xl bg-purple-300 hidden md:block"></div>
           <div className="absolute w-48 h-48 rounded-xl bg-purple-300 hidden md:block"></div>
@@ -65,14 +65,14 @@ export default function Login() {
               <h1 className="text-3xl font-bold text-center mb-4 cursor-pointer">
                 Login
               </h1>
-              <p className="w-80 text-center text-lg mb-8 font-semibold text-slate-500 tracking-wide cursor-pointer">
+              <p className="w-80 text-center text-lg mb-8 font-semibold text-slate-500 tracking-wide">
                 Enter your credentials
               </p>
             </div>
             <div className="space-y-4">
               <input
                 placeholder="Email Addres"
-                className="block text-lg py-3 px-4 rounded-lg w-full border outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500"
+                className=" block text-2xl py-3 px-4 rounded-lg w-full border outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500"
                 type="email"
                 name="email"
                 value={user.email}
@@ -80,24 +80,24 @@ export default function Login() {
               />
               <input
                 placeholder="Password"
-                className="block text-lg py-3 px-4 rounded-lg w-full border outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500"
+                className="block text-2xl py-3 px-4 rounded-lg w-full border outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500"
                 required
                 type={showPin}
                 name="password"
                 value={user.password}
                 onChange={handleChange}
               />
-              <p
-                className="cursor-pointer text-center p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight mb-4'"
+              <button
+                className="cursor-pointer pt-2 rounded-full baseline hover:text-sky-500 mb-4'"
                 onClick={handleShowPin}
               >
                 {showPin === "password" ? "Show" : "Hide"} password
-              </p>
+              </button>
             </div>
             <div className="text-center mt-6">
               <button
                 type="submit"
-                className="py-3 w-64 text-xl text-white bg-purple-400 rounded-2xl"
+                className="py-3 w-64 text-2xl text-white bg-black rounded-2xl"
               >
                 Login
               </button>

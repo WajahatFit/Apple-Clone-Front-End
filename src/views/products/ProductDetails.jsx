@@ -39,12 +39,11 @@ export default function ProductDetails() {
       console.error(error);
     }
   };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const addToCart = async (productId) => {
     try {
       axios.post(
         `${process.env.REACT_APP_API_URL}/cart/checkcart`,
-        { productId: product._id },
+        { productId },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
       toast.success("Products added to the cart");
@@ -70,7 +69,7 @@ export default function ProductDetails() {
             <div className="flex flex-row justify-center items-center space-x-8 p-4 md:p-4">
               {isLoggedIn && isLoggedIn ? (
                 <button
-                  onClick={handleSubmit}
+                  onClick={() => addToCart(product._id)}
                   className="text-white bg-sky-600 p-2  md:p-4 text-xl md:text-xl rounded-full lg:text-2xl hover:bg-white hover:text-sky-600"
                 >
                   add to Cart
