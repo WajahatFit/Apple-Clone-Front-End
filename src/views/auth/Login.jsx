@@ -97,14 +97,14 @@ export default function Login() {
             <div className="text-center mt-6">
               <button
                 type="submit"
-                className="py-3 w-64 text-2xl text-white bg-black rounded-2xl"
+                className="py-3 w-64 text-2xl text-white bg-black rounded-2xl hover:bg-sky-500"
               >
                 Login
               </button>
               <p className="mt-4 text-lg">
                 Not a member?{" "}
                 <Link to="/signup">
-                  <span className="underline cursor-pointer">Register</span>
+                  <span className="underline cursor-pointer hover:text-sky-500">Register</span>
                 </Link>
               </p>
             </div>
