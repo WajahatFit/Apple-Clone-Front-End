@@ -4,10 +4,10 @@ import { Navigate } from "react-router-dom";
 
 function IsAdmin({ children }) {
   const { IsAdmin } = useContext(AuthContext);
-  if (IsAdmin) {
-    return children;
-  } else {
+  if (!IsAdmin) {
     return <Navigate to="/" />;
+  } else {
+    return children;
   }
 }
 

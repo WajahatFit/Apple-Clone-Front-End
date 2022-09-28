@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import logo from "../images/project logo.png";
-import 'animate.css';
-
+import "animate.css";
 
 export default function Navbar() {
   const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
@@ -128,31 +127,29 @@ export default function Navbar() {
                 to="/profile"
               >
                 <button className="">Profile</button>
-              
               </NavLink>
             </li>
           </ul>
           <div>
-          {isLoggedIn && (
-            <button
-              className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline text-xl hover:bg-brightRedLight"
-              onClick={() => logOutUser()}
-            >
-              Log out
-            </button>
-            )}
-          {!isLoggedIn && (
-            <button>
-              <NavLink
-                className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline text-lg hover:bg-brightRedLight"
-                to="/login"
+            {isLoggedIn && (
+              <button
+                className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline text-xl hover:bg-brightRedLight"
+                onClick={() => logOutUser()}
               >
-                Login
-              </NavLink>
-            </button>
-          )}
+                Log out
+              </button>
+            )}
+            {!isLoggedIn && (
+              <button>
+                <NavLink
+                  className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline text-lg hover:bg-brightRedLight"
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+              </button>
+            )}
           </div>
-          
         </div>
       </nav>
     </div>

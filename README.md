@@ -35,12 +35,9 @@ npm run start
 - User can remove products from the cart
 - User can checkout
 - User can pay
-- User can search for specific product
 
 ### Backlog
 
-- User can send gifts
-- User can share a specific product to the social media via link
 - User can reserve products
 - User can chat with apple staff
 - User can Search for a Apple store
@@ -49,7 +46,7 @@ npm run start
 
 ## Useful links
 
-- [Presentation slides]()
+- [Presentation slides](https://www.canva.com/design/DAFMet8b2DU/yAa40LmsJSJXSG_ZhM-CCw/edit?utm_content=DAFMet8b2DU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - [Backend repository](https://github.com/WajahatFit/Apple-Clone-Back-End)
 - [Backend deploy](https://applecloned.herokuapp.com/)
 - [Deployed app]()
