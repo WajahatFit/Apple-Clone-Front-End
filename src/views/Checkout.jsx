@@ -12,7 +12,7 @@ export default function Checkout() {
           src={card}
           alt="credit card"
         />
-        <img className="absolute top-0 md:-top-40 left-0" src={wave} alt="wave" />
+        <img className="absolute top-0 md:-top-40 lg:-top-60 left-0" src={wave} alt="wave" />
       </div>
       <div className="w-1/2 flex flex-col rounded-3xl">
         <div className="flex flex-col justify-center items-center space-y-4 text-white text-3xl">
