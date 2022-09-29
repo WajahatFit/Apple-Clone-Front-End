@@ -16,7 +16,7 @@ export default function Cart() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         );
         setCart(response.data.data[0].products);
-        console.log(response.data.data[0].products, 'product in cart')
+        console.log(response.data.data[0].products, "product in cart");
       } catch (error) {
         console.log(error);
       }
@@ -37,24 +37,27 @@ export default function Cart() {
     }
   };
   return (
-    <div className="font-sans bg-black p-24 md:flex md:flex-row md:justify-center md:items-center">
+    <div className="font-sans bg-black p-24 md:flex md:flex-row md:justify-center md:items-center capitalize">
       {cart &&
         cart.map((elem) => {
           return (
-            <div
-              key={elem._id}
-            >
+            <div key={elem._id}>
               <div className="md:justify-between">
                 <div className="flex flex-col items-center justify-center space-y-4 p-4">
                   <div className="flex flex-col items-center space-y-4">
-                  <h1 className="text-2xl md:text-5xl">{elem.title}</h1>
-                  
-                  <p className="text-gray-600 md:text-2xl">{elem.description}</p>
-                  <p className="text-4xl">{elem.price}$</p>
-                 </div>
-                    
+                    <h1 className="text-2xl md:text-5xl">{elem.title}</h1>
+
+                    <p className="text-gray-600 md:text-2xl">
+                      {elem.description}
+                    </p>
+                    <p className="text-4xl">{elem.price}$</p>
+                  </div>
                 </div>
-                <img className="w-full md:w-2/4 md:mx-auto" src={elem.images} alt={ elem.title} />
+                <img
+                  className="w-full md:w-2/4 md:mx-auto"
+                  src={elem.images}
+                  alt={elem.title}
+                />
                 <div className="flex flex-row justify-center items-center">
                   <Link to="/checkout">
                     <button className="bg-brightRed p-4 rounded-full text-white m-4">

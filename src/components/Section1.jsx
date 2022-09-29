@@ -4,7 +4,7 @@ import difference from "../images/undraw_contrast_re_hc7k.svg";
 export default function Section1() {
   return (
     <div className="bg-gradient-to-b from-slate-300">
-      <section className=' p-4'>
+      <section className=" p-4">
         <div className="container flex flex-col px-20 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row">
           <div className="flex flex-col space-y-12 md:w-1/2">
             <h2 className="max-w-md text-4xl font-bold text-center md:text-left">

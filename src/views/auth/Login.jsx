@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "../auth/Login.css";
 
-
 export default function Login() {
   const { storeToken, authenticateUser } = useContext(AuthContext);
   const [showPin, setShowPin] = useState("password");
@@ -104,7 +103,9 @@ export default function Login() {
               <p className="mt-4 text-lg">
                 Not a member?{" "}
                 <Link to="/signup">
-                  <span className="underline cursor-pointer hover:text-sky-500">Register</span>
+                  <span className="underline cursor-pointer hover:text-sky-500">
+                    Register
+                  </span>
                 </Link>
               </p>
             </div>

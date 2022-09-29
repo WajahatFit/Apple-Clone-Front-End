@@ -16,7 +16,6 @@ import Products from "./views/Products";
 import ProductDetails from "./views/products/ProductDetails";
 import Cart from "./views/Cart";
 import About from "./views/About";
-import Search from "./views/Search";
 import Iphone from "./views/products/Iphone";
 import Watch from "./views/products/Watch";
 import AirPods from "./views/products/AirPods";
@@ -33,7 +32,6 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/search" element={<Search />} />
         <Route
           path="/profile"
           element={

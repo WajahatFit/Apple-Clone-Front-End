@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Products() {
-
   const [filtered, setFiltered] = useState(null);
   const storedToken = localStorage.getItem("authToken");
   const { isLoggedIn } = useContext(AuthContext);
@@ -29,7 +28,7 @@ export default function Products() {
     try {
       axios.post(
         `${process.env.REACT_APP_API_URL}/cart/checkcart`,
-        { productId},
+        { productId },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
       toast.success("Products added to the cart");
@@ -40,9 +39,13 @@ export default function Products() {
   };
 
   return (
-    <div className="capitalize flex flex-col sm:flex sm:flex-row sm:justify-around sm:items-start sm:flex-wrap bg-black sm:w-full p-4">
+    <div className="capitalize flex flex-col sm:flex sm:flex-row sm:justify-around sm:items-start sm:flex-wrap bg-black sm:w-full p-4 mb-60">
       {/* <img className="user--img" src={user.profilePic} alt={user.email}></img> */}
       {!filtered && <p>No products found in the DB</p>}
+      <div className="flex flex-col">
+        <h1 className="">Mac</h1>
+      </div>
+
       {filtered &&
         filtered
           .filter((product) => product.category === "Mac")
@@ -70,7 +73,7 @@ export default function Products() {
                     <div>
                       {isLoggedIn && isLoggedIn ? (
                         <button
-                          onClick={()=> addToCart(product._id)}
+                          onClick={() => addToCart(product._id)}
                           className="text-sky-500 text-2xl hover:underline hover:underline-offset-2"
                         >
                           add to Cart {">"}

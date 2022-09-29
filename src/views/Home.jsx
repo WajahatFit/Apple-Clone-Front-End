@@ -12,7 +12,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="font-sans">
+    <div className="font-sans mb-10">
       <section id="iPhone" className="flex flex-col mx-auto bg-balck">
         <div className="flex flex-col bg-black items-center tracking-widest md:p-4 p-6 space-y-6">
           <div className="text-5xl text-center md:text-6xl md:text-center lg:text-8xl md:py-4 lg:text-center font-extrabold mt-8 p-4">
