@@ -12,8 +12,8 @@ import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="font-sans mb-10">
-      <section id="iPhone" className="flex flex-col mx-auto bg-balck">
+    <div className="font-sans mb-10 bg-black">
+      <section id="iPhone" className="flex flex-col mx-auto bg-black">
         <div className="flex flex-col bg-black items-center tracking-widest md:p-4 p-6 space-y-6">
           <div className="text-5xl text-center md:text-6xl md:text-center lg:text-8xl md:py-4 lg:text-center font-extrabold mt-8 p-4">
             <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
@@ -70,7 +70,7 @@ function Home() {
         </div>
       </section>
       <section id="iPad">
-        <div className="flex flex-col bg-black items-center tracking-widest w-full">
+        <div className="flex flex-col bg-black items-center tracking-widest w-full ">
           <div className="text-5xl text-center md:text-6xl md:text-center lg:text-8xl lg:text-center font-extrabold mt-12">
             <span className=" bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500">
               It's Simple. It's Pro.
@@ -95,7 +95,7 @@ function Home() {
           <img className="w-full md:w-1/2 mt-8" src={iPad} alt="iPad" />
         </div>
       </section>
-      <section id="AirPods" className="bg-black">
+      <section id="Macbook" className="bg-black">
         <div className="flex flex-col bg-black items-center tracking-widest w-full">
           <div className="text-5xl text-center md:text-6xl md:text-center lg:text-8xl lg:text-center font-extrabold mt-12">
             <span className=" bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">

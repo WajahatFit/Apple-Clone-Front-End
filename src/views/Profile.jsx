@@ -64,7 +64,7 @@ export default function Profile() {
     <div className=" bg-black font-sans flex flex-col items-center justify-around h-full md:flex-row uppercase p-12">
       <div className="w-1/2 bg-black rounded-3xl">
         <img className="w-full mx-auto my-4 lg:w-2/4" src={img} alt="mobile" />
-        <img className="absolute -top-20 left-0" src={wave} alt="wave" />
+        <img className="absolute -top-20 left-0 lg:-top-40" src={wave} alt="wave" />
       </div>
       <div className="w-1/2 flex flex-col rounded-3xl">
         <div className="flex flex-col justify-center items-center space-y-4 text-white text-3xl">
