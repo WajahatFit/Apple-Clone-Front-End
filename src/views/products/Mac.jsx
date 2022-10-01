@@ -41,6 +41,7 @@ export default function Products() {
   return (
     <div className="capitalize flex flex-col sm:flex sm:flex-row sm:justify-around sm:items-start sm:flex-wrap bg-black sm:w-full p-4 mb-60">
       {/* <img className="user--img" src={user.profilePic} alt={user.email}></img> */}
+      
       {!filtered && <p>No products found in the DB</p>}
       <div className="flex flex-col">
         <h1 className="">Mac</h1>
@@ -51,7 +52,7 @@ export default function Products() {
           .filter((product) => product.category === "Mac")
           .map((product) => {
             return (
-              <div className="" key={product.title}>
+              <div  key={product.title}>
                 <Link to={"/products/" + product._id}>
                   <div className="flex-1 flex flex-col items-center justify-center space-x-4 space-y-4 p-4">
                     <span className="text-3xl text-center md:text-5xl md:text-center lg:text-6xl md:py-4 lg:text-center font-extrabold mt-8  bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">

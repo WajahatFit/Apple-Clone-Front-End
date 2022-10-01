@@ -16,7 +16,6 @@ export default function Cart() {
           { headers: { Authorization: `Bearer ${storedToken}` } }
         );
         setCart(response.data.data[0].products);
-        console.log(response.data.data[0].products, "product in cart");
       } catch (error) {
         console.log(error);
       }
@@ -27,7 +26,7 @@ export default function Cart() {
   const handleDelete = async (productId) => {
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/cart/delete/` + productId,
+        `${process.env.REACT_APP_API_URL}/cart/delete/${ productId }` ,
         {},
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
@@ -37,12 +36,12 @@ export default function Cart() {
     }
   };
   return (
-    <div className="font-sans bg-black p-24 md:flex md:flex-row md:justify-center md:items-center capitalize">
+    <div className="font-sans bg-black p-24 md:flex md:flex-row md:justify-center md:items-center ">
       {cart &&
         cart.map((elem) => {
           return (
             <div key={elem._id}>
-              <div className="md:justify-between">
+              <div className="md:justify-between capitalize">
                 <div className="flex flex-col items-center justify-center space-y-4 p-4">
                   <div className="flex flex-col items-center space-y-4">
                     <h1 className="text-2xl md:text-5xl">{elem.title}</h1>

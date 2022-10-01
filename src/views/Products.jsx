@@ -7,7 +7,7 @@ import Header from "../components/Header";
 export default function Products() {
   const [products, setProducts] = useState(null);
   const [searchProduct, setSearchProduct] = useState("");
-  const [filteredProducts, setfilteredProducts] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState(null);
   const [showLinks, setShowLinks] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Products() {
           `${process.env.REACT_APP_API_URL}/products`
         );
         setProducts(response.data.data);
-        setfilteredProducts(response.data.data);
+        setFilteredProducts(response.data.data);
       } catch (error) {
         console.error(error);
       }
@@ -28,7 +28,7 @@ export default function Products() {
 
   const handleMoreExpensive = () => {
     const ordered = [...products].sort((a, b) => b.price - a.price);
-    setfilteredProducts(ordered);
+    setFilteredProducts(ordered);
   };
   const handleSort = () => {
     setShowLinks((showLinks) => !showLinks);
@@ -36,18 +36,18 @@ export default function Products() {
 
   const handleCheaper = () => {
     const ordered = [...products].sort((a, b) => a.price - b.price);
-    setfilteredProducts(ordered);
+    setFilteredProducts(ordered);
   };
 
   const handleSearch = (e) => {
     setSearchProduct(e.target.value);
     if (e.target.value === "") {
-      setfilteredProducts(products);
+      setFilteredProducts(products);
     } else {
       const filtered = products.filter((el) =>
         el.title.toLowerCase().includes(e.target.value.toLocaleLowerCase())
       );
-      setfilteredProducts(filtered);
+      setFilteredProducts(filtered);
     }
   };
 
@@ -63,9 +63,8 @@ export default function Products() {
           searchProduct={searchProduct}
         />
       </div>
-      {/* <img className="user--img" src={user.profilePic} alt={user.email}></img> */}
       {!filteredProducts && (
-        <p className="text-6xl  text-white flex flex-col mt-40">
+        <p className="text-6xl text-white flex justify-center items-center mt-60">
           No products found in the DB
         </p>
       )}

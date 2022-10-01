@@ -52,13 +52,13 @@ export default function Header({
             id={showLinks ? "hidden" : "flex flex-col"}
           >
             <button
-              className="hover:underline hover:underline-3 hover:text-sky-400 hover:text-2xl hover:ease-in duration-300"
+              className="hover:underline hover:underline-3 hover:text-sky-400 hover:ease-in duration-300"
               onClick={handleCheaper}
             >
               Low to High
             </button>
             <button
-              className="hover:underline hover:underline-3 hover:text-sky-400 hover:text-2xl hover:ease-in duration-300"
+              className="hover:underline hover:underline-3 hover:text-sky-400  hover:ease-in duration-300"
               onClick={handleMoreExpensive}
             >
               High to Low

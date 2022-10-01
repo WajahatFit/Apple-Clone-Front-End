@@ -52,7 +52,7 @@ export default function Login() {
 
   return (
     <div>
-      <div class="context">
+      <div className="context">
         <form
           onSubmit={handleSubmit}
           className="min-h-screen flex justify-center items-center"
@@ -113,8 +113,8 @@ export default function Login() {
         </form>
       </div>
 
-      <div class="area">
-        <ul class="circles">
+      <div className="area">
+        <ul className="circles">
           <li></li>
           <li></li>
           <li></li>
