@@ -229,7 +229,7 @@ function Home() {
           </h1>
           <div className="flex flex-row justify-center mx-auto space-x-8">
             <Link to="/about">
-              <h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-offset-2">
+              <h1 className="text-sky-500 text-2xl md:text-3xl lg:text-4xl hover:underline hover:underline-of">
                 Our mission {">"}
               </h1>
             </Link>
